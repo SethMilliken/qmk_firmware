@@ -1,3 +1,6 @@
+# For Liatris
+CONVERT_TO = kb2040
+
 #SRC += custom.c
 CONSOLE_ENABLE = no
 NO_USB_STARTUP_CHECK = yes

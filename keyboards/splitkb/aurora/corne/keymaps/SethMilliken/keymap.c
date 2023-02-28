@@ -9,7 +9,8 @@ enum araxia_layers {
     _WIN_LEFT,        // 5
     _SYMBOL,          // 6
     _ADJUST,          // 7
-    _LIGHTING         // 8
+    _LIGHTING,        // 8
+    _DISCORD          // 9
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -22,13 +23,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_FUNCTION] = LAYOUT_split_3x6_3(
                 KC_TRNS ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0  ,  KC_TRNS ,
                 KC_TRNS ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_LEFT ,  KC_DOWN ,  KC_UP   ,  KC_RGHT ,  KC_NO ,  KC_NO   ,
-                KC_TRNS ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_PGUP ,  KC_PGDN ,  KC_HOME ,  KC_END  ,  KC_NO ,  KC_NO   ,
+                KC_TRNS ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_PGUP ,  KC_PGDN ,  KC_HOME ,  KC_END  ,  KC_NO ,  KC_ENT  ,
                 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_NUMPAD] = LAYOUT_split_3x6_3(
-                KC_TRNS ,  KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0     ,  KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  KC_SCLN ,  KC_TRNS  ,
+                KC_BSPC ,  KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0     ,  KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  KC_SCLN ,  KC_TRNS  ,
                 KC_SLSH ,  KC_DOT   ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_COLON ,  KC_MINS ,  KC_EQL  ,  KC_LCBR ,  KC_RCBR ,  KC_BSLS ,  KC_GRAVE ,
-                KC_QUOT ,  KC_EQL   ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_MINS  ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_PIPE ,  KC_TILDE ,
+                KC_SPC  ,  KC_EQL   ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_MINS  ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_PIPE ,  KC_TILDE ,
                 KC_TRNS ,  KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_MEDIA] = LAYOUT_split_3x6_3(
@@ -57,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
         // tri-state layer; do not switch to directly
 	[_ADJUST] = LAYOUT_split_3x6_3(
-                KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO      ,  KC_NO      ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO  ,
-                KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  QK_MACRO_0 ,  QK_MACRO_1 ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO  ,
-                KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_DOT     ,  CW_TOGG    ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO  ,
+                KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO      ,  KC_NO      ,  KC_NO      ,  KC_NO      ,  KC_NO ,  KC_NO ,  KC_NO  ,
+                KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  QK_MACRO_0 ,  QK_MACRO_1 ,  QK_MACRO_2 ,  QK_MACRO_3 ,  KC_NO ,  KC_NO ,  KC_NO  ,
+                KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_DOT     ,  CW_TOGG    ,  KC_NO      ,  KC_NO      ,  KC_NO ,  KC_NO ,  KC_NO  ,
                 KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO ,  KC_NO
         ),
         // tri-state layer; do not switch to directly
@@ -68,6 +69,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_NO ,  KC_NO ,  KC_NO ,  RGB_VAI ,  RGB_VAD ,  RGB_MOD ,  DB_TOGG ,  KC_NO      ,  KC_F21 ,  KC_F20 ,  KC_F19 ,  KC_NO ,
                 KC_NO ,  KC_NO ,  KC_NO ,  RGB_SAI ,  RGB_SAD ,  CW_TOGG ,  QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 ,  KC_NO ,
                 KC_NO ,  KC_NO ,  KC_NO ,  KC_NO   ,  KC_NO   ,  KC_NO
+        ),
+        // tri-state layer; do not switch to directly
+	[_DISCORD] = LAYOUT_split_3x6_3(
+                KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO ,  KC_NO         ,  KC_NO       ,  KC_NO ,  KC_NO ,  KC_NO ,
+                KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO ,  A(S(KC_DOWN)) ,  A(S(KC_UP)) ,  KC_NO ,  KC_NO ,  KC_NO ,
+                KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO ,  KC_NO         ,  KC_NO       ,  KC_NO ,  KC_NO ,  KC_NO ,
+                KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         )
 };
 
@@ -79,6 +87,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             case QK_MACRO_1:
                 SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LCTL)SS_TAP(X_S)SS_UP(X_LCTL)SS_UP(X_LGUI)"kf");
+                return false;
+            case QK_MACRO_2:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LCTL)SS_TAP(X_J)SS_UP(X_LCTL)SS_UP(X_LGUI));
+                return false;
+            case QK_MACRO_3:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LCTL)SS_TAP(X_K)SS_UP(X_LCTL)SS_UP(X_LGUI));
                 return false;
         }
     }
@@ -101,7 +115,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  state = update_tri_layer_state(state ,  _FUNCTION  ,  _NUMPAD   ,  _ADJUST);
-  state = update_tri_layer_state(state ,  _WIN_RIGHT ,  _WIN_LEFT ,  _LIGHTING);
-  return state;
+    state = update_tri_layer_state(state ,  _FUNCTION  ,  _NUMPAD   ,  _ADJUST);
+    state = update_tri_layer_state(state ,  _FUNCTION  ,  _MEDIA    ,  _DISCORD);
+    state = update_tri_layer_state(state ,  _WIN_RIGHT ,  _WIN_LEFT ,  _LIGHTING);
+    return state;
 }
