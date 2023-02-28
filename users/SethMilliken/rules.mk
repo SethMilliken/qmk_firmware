@@ -1,0 +1,9 @@
+# For Liatris
+CONVERT_TO = kb2040
+
+#SRC += custom.c
+CONSOLE_ENABLE = no
+NO_USB_STARTUP_CHECK = yes
+CAPS_WORD_ENABLE = yes
+RGBLIGHT_ENABLE = yes
+RGB_MATRIX_ENABLE = no
