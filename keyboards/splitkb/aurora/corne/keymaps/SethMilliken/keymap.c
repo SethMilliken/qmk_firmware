@@ -1,5 +1,7 @@
 #include QMK_KEYBOARD_H
 
+#define HYPE(x) C(A(G(x)))
+
 enum araxia_layers {
     _BASE,            // 0
     _FUNCTION,        // 1
@@ -120,3 +122,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     state = update_tri_layer_state(state ,  _WIN_RIGHT ,  _WIN_LEFT ,  _LIGHTING);
     return state;
 }
+
+void liatris_power_led_off(void) {
+  // Set our LED pin as output
+  setPinOutput(24);
+  // Turn the LED off
+  // (Due to technical reasons, high is off and low is on)
+  writePinHigh(24);
+}
+
+void keyboard_pre_init_user(void) {
+  liatris_power_led_off();
+}
+
