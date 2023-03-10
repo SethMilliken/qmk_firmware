@@ -21,10 +21,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       LGUI_T(KC_ENT) ,  LSFT_T(C(KC_W)) ,  LT(_NUMPAD,KC_ESC) ,  LT(_FUNCTION,KC_ESC) ,  LT(_MEDIA,KC_SPC) ,  LGUI_T(KC_COLON)
         ),
 	[_FUNCTION] = LAYOUT_split_3x6_3(
-                KC_TRNS ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0  ,  KC_TRNS ,
-                KC_TRNS ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_LEFT ,  KC_DOWN ,  KC_UP   ,  KC_RGHT ,  KC_NO ,  KC_NO   ,
-                KC_TRNS ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_PGUP ,  KC_PGDN ,  KC_HOME ,  KC_END  ,  KC_NO ,  KC_ENT  ,
-                KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+                KC_TILDE ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_4    ,  KC_5    ,  C(KC_F2)  ,  C(KC_F3)  ,  C(KC_8) ,  G(S(KC_SLSH)) ,  C(KC_F5)      ,  C(KC_F7)      , 
+                KC_TRNS  ,  KC_6    ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0    ,  KC_LEFT   ,  KC_DOWN   ,  KC_UP   ,  KC_RGHT       ,  G(A(KC_MINS)) ,  G(A(KC_8))    ,
+                KC_TRNS  ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_NO   ,  KC_PGUP   ,  KC_PGDN   ,  KC_HOME ,  KC_END        ,  G(A(KC_PLUS)) ,  KC_ENT        ,
+                KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_NUMPAD] = LAYOUT_split_3x6_3(
                 KC_BSPC ,  KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0     ,  KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  KC_SCLN ,  KC_TRNS  ,
