@@ -1,7 +1,10 @@
 #include QMK_KEYBOARD_H
 
+#define CONFIG_VERSION "0.01"
+
 #define HYPE(x) C(A(G(x)))
 
+// KEYMAP {{{
 enum araxia_layers {
     _BASE,            // 0
     _SYMBOLS,         // 6
@@ -34,9 +37,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_NUMPAD] = LAYOUT_split_3x6_3(
-                KC_NO   ,  KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0          ,  C(KC_F2)  ,  C(KC_F3)  ,  C(KC_8) ,  G(S(KC_SLSH)) ,  C(KC_F5)      ,  KC_TAB    ,   
-                KC_NO   ,  KC_DOT   ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_COLON      ,  KC_LEFT   ,  KC_DOWN   ,  KC_UP   ,  KC_RGHT       ,  KC_NO         ,  KC_ENT    ,  
-                KC_NO   ,  KC_EQL   ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_MINS       ,  KC_PGUP   ,  KC_PGDN   ,  KC_HOME ,  KC_END        ,  KC_NUM_LOCK   ,  A(KC_F4)  ,  
+                KC_NO   ,  KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0          ,  C(KC_F2)  ,  C(KC_F3)  ,  C(KC_8) ,  G(S(KC_SLSH)) ,  C(KC_F5)      ,  KC_TAB    ,
+                KC_NO   ,  KC_DOT   ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_COLON      ,  KC_LEFT   ,  KC_DOWN   ,  KC_UP   ,  KC_RGHT       ,  KC_NO         ,  KC_ENT    ,
+                KC_NO   ,  KC_EQL   ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_MINS       ,  KC_PGUP   ,  KC_PGDN   ,  KC_HOME ,  KC_END        ,  KC_NUM_LOCK   ,  A(KC_F4)  ,
                                                   KC_TRNS ,  KC_TRNS ,  KC_TRNS       ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS
         ),
 	[_WIN_LEFT] = LAYOUT_split_3x6_3(
@@ -73,7 +76,89 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         )
 };
+// }}}
+// COMBOS {{{
+enum myCombos {
+    COMBO_VERSION,
+    COMBO_DEL,
+    COMBO_TMUX,
+    COMBO_TMUX_MODE,
+    COMBO_GUI_LEFT,
+    COMBO_ALT_LEFT,
+    COMBO_GUI_RIGHT,
+    COMBO_ALT_RIGHT,
+    COMBO_LENGTH
+};
+uint16_t COMBO_LEN = COMBO_LENGTH;
 
+const uint16_t PROGMEM combo_version[]    = {LT(_WIN_LEFT,KC_TAB) ,  KC_Q                   ,  COMBO_END};
+const uint16_t PROGMEM combo_del[]        = {KC_P                 ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux[]       = {KC_F                 ,  KC_J                   ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux_mode[]  = {KC_R                 ,  KC_U                   ,  COMBO_END};
+const uint16_t PROGMEM combo_gui_left[]   = {LALT_T(KC_GRV)       ,  KC_Z                   ,  COMBO_END};
+const uint16_t PROGMEM combo_alt_left[]   = {LCTL_T(KC_ESC)       ,  LALT_T(KC_GRV)         ,  COMBO_END};
+const uint16_t PROGMEM combo_gui_right[]  = {KC_SLSH              ,  RALT_T(KC_BSLS)        ,  COMBO_END};
+const uint16_t PROGMEM combo_alt_right[]  = {RCTL_T(KC_QUOT)      ,  RALT_T(KC_BSLS)        ,  COMBO_END};
+
+combo_t key_combos[] = {
+    [COMBO_VERSION]    = COMBO_ACTION(combo_version)   ,
+    [COMBO_DEL]        = COMBO_ACTION(combo_del)       ,
+    [COMBO_TMUX]       = COMBO_ACTION(combo_tmux)      ,
+    [COMBO_TMUX_MODE]  = COMBO_ACTION(combo_tmux_mode) ,
+    [COMBO_GUI_LEFT]   = COMBO_ACTION(combo_gui_left) ,
+    [COMBO_GUI_RIGHT]  = COMBO_ACTION(combo_gui_right) ,
+    [COMBO_ALT_LEFT]   = COMBO_ACTION(combo_alt_left) ,
+    [COMBO_ALT_RIGHT]  = COMBO_ACTION(combo_alt_right) ,
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case COMBO_VERSION:
+      if (pressed) {
+        SEND_STRING(CONFIG_VERSION);
+      }
+      break;
+    case COMBO_DEL:
+      if (pressed) {
+        tap_code16(KC_DEL);
+      }
+      break;
+    case COMBO_TMUX:
+      if (pressed) {
+        tap_code16(C(KC_A));
+      }
+      break;
+    case COMBO_TMUX_MODE:
+      if (pressed) {
+        tap_code16(C(KC_A));
+        tap_code16(KC_F);
+      }
+      break;
+    case COMBO_GUI_LEFT:
+      if (pressed) {
+        tap_code16(KC_LGUI);
+      }
+      break;
+    case COMBO_GUI_RIGHT:
+      if (pressed) {
+        tap_code16(KC_RGUI);
+      }
+      break;
+    case COMBO_ALT_LEFT:
+      if (pressed) {
+        tap_code16(KC_LALT);
+      }
+      break;
+    case COMBO_ALT_RIGHT:
+      if (pressed) {
+        tap_code16(KC_RALT);
+      }
+      break;
+  }
+}
+
+// }}}
+// MACROS {{{
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
@@ -109,6 +194,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+// }}}
+// TRILAYERS {{{
 layer_state_t layer_state_set_user(layer_state_t state) {
     state = update_tri_layer_state(state ,  _SYMBOLS   ,  _MEDIA    ,  _ADJUST);
     state = update_tri_layer_state(state ,  _MEDIA     ,  _NUMPAD   ,  _DISCORD);
@@ -116,6 +203,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
+// }}}
+// MISC {{{
 void liatris_power_led_off(void) {
   // Set our LED pin as output
   setPinOutput(24);
@@ -127,4 +216,4 @@ void liatris_power_led_off(void) {
 void keyboard_pre_init_user(void) {
   liatris_power_led_off();
 }
-
+// }}}
