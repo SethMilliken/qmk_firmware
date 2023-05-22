@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "0.01"
+#define CONFIG_VERSION "0.02"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -176,9 +176,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
         }
     }
-    /* Workaround for mod-tap not supporting shifted keycodes */
+    /* Workaround for mod-tap not supporting modified tap keycodes */
     switch (keycode) {
-        case LGUI_T(KC_COLON):
+        case RGUI_T(KC_COLON):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_COLON); // Send KC_COLON on tap
                 return false;         // Return false to ignore further processing of key
