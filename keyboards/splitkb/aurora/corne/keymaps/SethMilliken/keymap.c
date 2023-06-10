@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "0.02"
+#define CONFIG_VERSION "0.03"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -81,34 +81,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum myCombos {
     COMBO_VERSION,
     COMBO_DEL,
-    COMBO_TMUX,
-    COMBO_TMUX_MODE,
     COMBO_GUI_LEFT,
     COMBO_ALT_LEFT,
     COMBO_GUI_RIGHT,
     COMBO_ALT_RIGHT,
+    COMBO_INVERSE_WINL,
+    COMBO_INVERSE_WINR,
+    COMBO_TMUX,
+    COMBO_TMUX_MODE,
     COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM combo_version[]    = {LT(_WIN_LEFT,KC_TAB) ,  KC_Q                   ,  COMBO_END};
-const uint16_t PROGMEM combo_del[]        = {KC_P                 ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
-const uint16_t PROGMEM combo_tmux[]       = {KC_F                 ,  KC_J                   ,  COMBO_END};
-const uint16_t PROGMEM combo_tmux_mode[]  = {KC_R                 ,  KC_U                   ,  COMBO_END};
-const uint16_t PROGMEM combo_gui_left[]   = {LALT_T(KC_GRV)       ,  KC_Z                   ,  COMBO_END};
-const uint16_t PROGMEM combo_alt_left[]   = {LCTL_T(KC_ESC)       ,  LALT_T(KC_GRV)         ,  COMBO_END};
-const uint16_t PROGMEM combo_gui_right[]  = {KC_SLSH              ,  RALT_T(KC_BSLS)        ,  COMBO_END};
-const uint16_t PROGMEM combo_alt_right[]  = {RCTL_T(KC_QUOT)      ,  RALT_T(KC_BSLS)        ,  COMBO_END};
+const uint16_t PROGMEM combo_version[]       = {LT(_WIN_LEFT,KC_TAB) ,  KC_Q                   ,  COMBO_END};
+const uint16_t PROGMEM combo_del[]           = {KC_P                 ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
+const uint16_t PROGMEM combo_gui_left[]      = {LALT_T(KC_GRV)       ,  KC_Z                   ,  COMBO_END};
+const uint16_t PROGMEM combo_alt_left[]      = {LCTL_T(KC_ESC)       ,  LALT_T(KC_GRV)         ,  COMBO_END};
+const uint16_t PROGMEM combo_gui_right[]     = {KC_SLSH              ,  RALT_T(KC_BSLS)        ,  COMBO_END};
+const uint16_t PROGMEM combo_alt_right[]     = {RCTL_T(KC_QUOT)      ,  RALT_T(KC_BSLS)        ,  COMBO_END};
+const uint16_t PROGMEM combo_inverse_winl[]  = {LT(_WIN_LEFT,KC_TAB) ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
+const uint16_t PROGMEM combo_inverse_winr[]  = {LT(_MEDIA,KC_ESC)    ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux[]          = {KC_W                 ,  KC_E                   ,  KC_R         ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux_mode[]     = {KC_U                 ,  KC_I                   ,  KC_O         ,  COMBO_END};
 
 combo_t key_combos[] = {
-    [COMBO_VERSION]    = COMBO_ACTION(combo_version)   ,
-    [COMBO_DEL]        = COMBO_ACTION(combo_del)       ,
-    [COMBO_TMUX]       = COMBO_ACTION(combo_tmux)      ,
-    [COMBO_TMUX_MODE]  = COMBO_ACTION(combo_tmux_mode) ,
-    [COMBO_GUI_LEFT]   = COMBO_ACTION(combo_gui_left) ,
-    [COMBO_GUI_RIGHT]  = COMBO_ACTION(combo_gui_right) ,
-    [COMBO_ALT_LEFT]   = COMBO_ACTION(combo_alt_left) ,
-    [COMBO_ALT_RIGHT]  = COMBO_ACTION(combo_alt_right) ,
+    [COMBO_VERSION]       = COMBO_ACTION(combo_version)      ,
+    [COMBO_DEL]           = COMBO_ACTION(combo_del)          ,
+    [COMBO_GUI_LEFT]      = COMBO_ACTION(combo_gui_left)     ,
+    [COMBO_GUI_RIGHT]     = COMBO_ACTION(combo_gui_right)    ,
+    [COMBO_ALT_LEFT]      = COMBO_ACTION(combo_alt_left)     ,
+    [COMBO_ALT_RIGHT]     = COMBO_ACTION(combo_alt_right)    ,
+    [COMBO_INVERSE_WINL]  = COMBO_ACTION(combo_inverse_winl) ,
+    [COMBO_INVERSE_WINR]  = COMBO_ACTION(combo_inverse_winr) ,
+    [COMBO_TMUX]          = COMBO_ACTION(combo_tmux)         ,
+    [COMBO_TMUX_MODE]     = COMBO_ACTION(combo_tmux_mode)    ,
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -121,17 +127,6 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case COMBO_DEL:
       if (pressed) {
         tap_code16(KC_DEL);
-      }
-      break;
-    case COMBO_TMUX:
-      if (pressed) {
-        tap_code16(C(KC_A));
-      }
-      break;
-    case COMBO_TMUX_MODE:
-      if (pressed) {
-        tap_code16(C(KC_A));
-        tap_code16(KC_F);
       }
       break;
     case COMBO_GUI_LEFT:
@@ -152,6 +147,27 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case COMBO_ALT_RIGHT:
       if (pressed) {
         tap_code16(KC_RALT);
+      }
+      break;
+    case COMBO_INVERSE_WINL:
+      if (pressed) {
+        tap_code16(MO(_WIN_RIGHT));
+      }
+      break;
+    case COMBO_INVERSE_WINR:
+      if (pressed) {
+        tap_code16(MO(_WIN_LEFT));
+      }
+      break;
+    case COMBO_TMUX:
+      if (pressed) {
+        tap_code16(C(KC_A));
+      }
+      break;
+    case COMBO_TMUX_MODE:
+      if (pressed) {
+        tap_code16(C(KC_A));
+        tap_code16(KC_F);
       }
       break;
   }
