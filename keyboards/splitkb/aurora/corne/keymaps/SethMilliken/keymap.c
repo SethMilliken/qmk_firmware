@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "0.07"
+#define CONFIG_VERSION "1.19"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -94,8 +94,8 @@ enum myCombos {
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM combo_version[]       = {LT(_WIN_LEFT,KC_TAB) ,  KC_Q                   ,  COMBO_END};
-const uint16_t PROGMEM combo_tmux[]          = {KC_W                 ,  KC_E                   ,  KC_R         ,  COMBO_END};
-const uint16_t PROGMEM combo_tmux_mode[]     = {KC_U                 ,  KC_I                   ,  KC_O         ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux[]          = {KC_U                 ,  KC_I                   ,  KC_O         ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux_mode[]     = {KC_W                 ,  KC_E                   ,  KC_R         ,  COMBO_END};
 const uint16_t PROGMEM combo_del[]           = {KC_P                 ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
 const uint16_t PROGMEM combo_gui_left[]      = {LALT_T(KC_GRV)       ,  KC_Z                   ,  COMBO_END};
 const uint16_t PROGMEM combo_alt_left[]      = {LCTL_T(KC_ESC)       ,  LALT_T(KC_GRV)         ,  COMBO_END};
