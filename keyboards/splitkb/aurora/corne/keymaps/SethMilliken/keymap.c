@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "0.05"
+#define CONFIG_VERSION "0.06"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -115,6 +115,14 @@ combo_t key_combos[] = {
     [COMBO_ALT_RIGHT]     = COMBO(   combo_alt_right          , KC_RALT                       ),
     [COMBO_INVERSE_WINL]  = COMBO(   combo_inverse_winl       , MO(_WIN_RIGHT)                ),
     [COMBO_INVERSE_WINR]  = COMBO(   combo_inverse_winr       , MO(_WIN_LEFT)                 ),
+};
+
+const key_override_t override_control_h = ko_make_basic(MOD_MASK_CTRL, KC_H, KC_BSPC);
+
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+	&override_control_h,
+	NULL // Null terminate the array of overrides!
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
