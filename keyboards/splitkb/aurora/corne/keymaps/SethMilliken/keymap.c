@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.19"
+#define CONFIG_VERSION "1.21"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -64,9 +64,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // tri-state layer; do not switch to directly
 	[_LIGHTING] = LAYOUT_split_3x6_3(
                 XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  RGB_TOG ,  QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 ,  XXXXXXX ,
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_MOD ,  DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 ,  XXXXXXX ,
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  CW_TOGG ,  QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 ,  XXXXXXX ,
-                                                 XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    ,  XXXXXXX
+                KC_LCTL ,  XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_MOD ,  DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 ,  XXXXXXX ,
+                KC_LALT ,  XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  CW_TOGG ,  QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 ,  XXXXXXX ,
+                                                 KC_LGUI ,  KC_LSFT ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    ,  XXXXXXX
         ),
         // tri-state layer; do not switch to directly
 	[_DISCORD] = LAYOUT_split_3x6_3(
