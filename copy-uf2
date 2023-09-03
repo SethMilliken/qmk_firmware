@@ -1,0 +1,9 @@
+#!/bin/bash
+TARGET=$1
+if [ "$TARGET" == "ksanti" ]; then
+COMMAND="cp *.uf2 /Volumes/Users/seth/Desktop/share/qmk-firmware"
+else
+COMMAND="scp *.uf2 191-grosvenor-imac.local:~/Desktop/"
+fi
+echo "$COMMAND"
+$COMMAND
