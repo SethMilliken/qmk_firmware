@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.55.0"
+#define CONFIG_VERSION "1.55.1"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -133,8 +133,8 @@ combo_t key_combos[] = {
     [COMBO_SWAP_RIGHT]    = COMBO(   combo_swap_right         , LGUI(KC_TAB)                  ),
     [COMBO_TAB_LEFT]      = COMBO(   combo_tab_left           , KC_TAB                        ),
     [COMBO_TAB_RIGHT]     = COMBO(   combo_tab_right          , KC_TAB                        ),
-    [COMBO_RETURN_LEFT]   = COMBO(   combo_return_left        , KC_RETURN                     ),
-    [COMBO_RETURN_RIGHT]  = COMBO(   combo_return_right       , KC_RETURN                     ),
+    [COMBO_RETURN_LEFT]   = COMBO(   combo_return_left        , KC_ENT                        ),
+    [COMBO_RETURN_RIGHT]  = COMBO(   combo_return_right       , KC_ENT                        ),
     [COMBO_STICKY_SHIFT]  = COMBO(   combo_sticky_shift       , OSM(MOD_LSFT)                 ),
 };
 
