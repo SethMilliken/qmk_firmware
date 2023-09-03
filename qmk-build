@@ -1,0 +1,20 @@
+#!/bin/bash
+TARGET=$1
+if [ "$TARGET" == "ksanti" ]; then
+COPY_DESTINATION="/Volumes/Users/seth/Desktop/share/qmk-firmware"
+else
+COPY_DESTINATION="~/Desktop/"
+fi
+if [ ! -d $COPY_DESTINATION ]; then
+    echo "Destination directory does not exist: $COPY_DESTINATION"
+    exit 1
+fi
+set -e
+cd badwingsmap/
+qmk compile
+cd ..
+cd splitkb-corne/
+qmk compile
+cd ..
+./copy-uf2 ksanti
+
