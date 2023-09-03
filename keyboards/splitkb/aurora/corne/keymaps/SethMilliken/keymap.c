@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.40.1"
+#define CONFIG_VERSION "1.43.0"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -19,9 +19,9 @@ enum araxia_layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BASE] = LAYOUT_split_3x6_3(
-                LT(_WIN_LEFT,KC_TAB) ,  KC_Q            ,  KC_W                ,  KC_E                 ,  KC_R                   ,  KC_T                 ,  KC_Y               ,  KC_U             ,  KC_I     ,  KC_O    ,  KC_P      ,  LT(_WIN_RIGHT,KC_BSPC)   ,
-                      LCTL_T(KC_ENT) ,  KC_A            ,  KC_S                ,  KC_D                 ,  KC_F                   ,  KC_G                 ,  KC_H               ,  KC_J             ,  KC_K     ,  KC_L    ,  KC_SCLN   ,  RCTL_T(KC_QUOT)          ,
-                      LALT_T(KC_GRV) ,  KC_Z            ,  KC_X                ,  KC_C                 ,  KC_V                   ,  KC_B                 ,  KC_N               ,  KC_M             ,  KC_COMMA ,  KC_DOT  ,  KC_GRV    ,  RALT_T(KC_BSLS)          ,
+                LT(_WIN_LEFT,KC_TAB) ,  KC_Q            ,  KC_W                ,  KC_E                 ,  KC_R                   ,  KC_T                 ,  KC_Y               ,  KC_U             ,  KC_I         ,  KC_O         ,  KC_P             ,  LT(_WIN_RIGHT,KC_BSPC)   ,
+                      LCTL_T(KC_ENT) ,  LCTL_T(KC_A)    ,  LGUI_T(KC_S)        ,  LALT_T(KC_D)         ,  LSFT_T(KC_F)           ,  KC_G                 ,  KC_H               ,  RSFT_T(KC_J)     ,  RALT_T(KC_K) ,  RGUI_T(KC_L) ,  RCTL_T(KC_SCLN)  ,  RCTL_T(KC_QUOT)          ,
+                      LALT_T(KC_GRV) ,  KC_Z            ,  KC_X                ,  KC_C                 ,  KC_V                   ,  KC_B                 ,  KC_N               ,  KC_M             ,  KC_COMMA     ,  KC_DOT       ,  KC_SLSH          ,  RALT_T(KC_BSLS)          ,
                                                            LGUI_T(KC_ENT)      ,  LSFT_T(C(KC_W))      ,  LT(_SYMBOLS,KC_ESC)    ,  LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC) ,  RGUI_T(KC_COLON)
         ),
 	[_SYMBOLS] = LAYOUT_split_3x6_3(
