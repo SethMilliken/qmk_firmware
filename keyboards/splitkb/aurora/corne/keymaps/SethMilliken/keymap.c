@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.44.0"
+#define CONFIG_VERSION "1.55.0"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -91,6 +91,11 @@ enum myCombos {
     COMBO_INVERSE_WINR,
     COMBO_SWAP_LEFT,
     COMBO_SWAP_RIGHT,
+    COMBO_TAB_LEFT,
+    COMBO_TAB_RIGHT,
+    COMBO_RETURN_LEFT,
+    COMBO_RETURN_RIGHT,
+    COMBO_STICKY_SHIFT,
     COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
@@ -101,12 +106,17 @@ const uint16_t PROGMEM combo_tmux_mode[]     = {KC_W                 ,  KC_E    
 const uint16_t PROGMEM combo_del[]           = {KC_P                 ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
 const uint16_t PROGMEM combo_gui_left[]      = {LALT_T(KC_GRV)       ,  KC_Z                   ,  COMBO_END};
 const uint16_t PROGMEM combo_alt_left[]      = {LCTL_T(KC_ENT)       ,  LALT_T(KC_GRV)         ,  COMBO_END};
-const uint16_t PROGMEM combo_gui_right[]     = {KC_GRV               ,  RALT_T(KC_BSLS)        ,  COMBO_END};
+const uint16_t PROGMEM combo_gui_right[]     = {KC_SLSH              ,  RALT_T(KC_BSLS)        ,  COMBO_END};
 const uint16_t PROGMEM combo_alt_right[]     = {RCTL_T(KC_QUOT)      ,  RALT_T(KC_BSLS)        ,  COMBO_END};
 const uint16_t PROGMEM combo_inverse_winl[]  = {LT(_WIN_LEFT,KC_TAB) ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
 const uint16_t PROGMEM combo_inverse_winr[]  = {LT(_MEDIA,KC_ESC)    ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
 const uint16_t PROGMEM combo_swap_left[]     = {KC_Q                 ,  KC_T                   ,  COMBO_END};
 const uint16_t PROGMEM combo_swap_right[]    = {KC_Y                 ,  KC_P                   ,  COMBO_END};
+const uint16_t PROGMEM combo_tab_left[]      = {KC_G                 ,  KC_B                   ,  COMBO_END};
+const uint16_t PROGMEM combo_tab_right[]     = {KC_H                 ,  KC_N                   ,  COMBO_END};
+const uint16_t PROGMEM combo_return_left[]   = {KC_T                 ,  KC_G                   ,  COMBO_END};
+const uint16_t PROGMEM combo_return_right[]  = {KC_Y                 ,  KC_H                   ,  COMBO_END};
+const uint16_t PROGMEM combo_sticky_shift[]  = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
 
 combo_t key_combos[] = {
     [COMBO_VERSION]       = COMBO_ACTION(   combo_version    ),
@@ -121,6 +131,11 @@ combo_t key_combos[] = {
     [COMBO_INVERSE_WINR]  = COMBO(   combo_inverse_winr       , MO(_WIN_LEFT)                 ),
     [COMBO_SWAP_LEFT]     = COMBO(   combo_swap_left          , LGUI(KC_TAB)                  ),
     [COMBO_SWAP_RIGHT]    = COMBO(   combo_swap_right         , LGUI(KC_TAB)                  ),
+    [COMBO_TAB_LEFT]      = COMBO(   combo_tab_left           , KC_TAB                        ),
+    [COMBO_TAB_RIGHT]     = COMBO(   combo_tab_right          , KC_TAB                        ),
+    [COMBO_RETURN_LEFT]   = COMBO(   combo_return_left        , KC_RETURN                     ),
+    [COMBO_RETURN_RIGHT]  = COMBO(   combo_return_right       , KC_RETURN                     ),
+    [COMBO_STICKY_SHIFT]  = COMBO(   combo_sticky_shift       , OSM(MOD_LSFT)                 ),
 };
 
 const key_override_t override_control_h = ko_make_basic(MOD_MASK_CTRL, KC_H, KC_BSPC);
