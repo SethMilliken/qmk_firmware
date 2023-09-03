@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.43.0"
+#define CONFIG_VERSION "1.44.0"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_SYMBOLS] = LAYOUT_split_3x6_3(
                 KC_BSPC ,  KC_LT   ,  KC_AMPR   ,  KC_ASTERISK ,  KC_LPRN  ,  KC_RPRN         ,  KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  KC_SCLN ,  KC_BSPC  ,
                 KC_SPC  ,  KC_GT   ,  KC_DOLLAR ,  KC_PERCENT  ,  KC_CIRC  ,  KC_TILDE        ,  KC_MINS ,  KC_EQL  ,  KC_LCBR ,  KC_RCBR ,  KC_BSLS ,  KC_GRAVE ,
-                KC_TRNS ,  KC_PLUS ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_UNDS         ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_PIPE ,  KC_TRNS  ,
+                KC_TRNS ,  KC_PLUS ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_UNDS         ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_GRV  ,  KC_TRNS  ,
                                                    KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_MEDIA] = LAYOUT_split_3x6_3(
