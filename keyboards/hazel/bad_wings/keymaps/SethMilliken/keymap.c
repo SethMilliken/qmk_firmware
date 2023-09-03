@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.55.1"
+#define CONFIG_VERSION "1.56.0"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -26,8 +26,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
 	[_SYMBOLS] = LAYOUT_split_3x5_3(
                 KC_BSPC ,  KC_AMPR   ,  KC_ASTERISK ,  KC_LPRN  ,  KC_RPRN         ,  KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  KC_SCLN ,
-                KC_SPC  ,  KC_DOLLAR ,  KC_PERCENT  ,  KC_CIRC  ,  KC_TILDE        ,  KC_MINS ,  KC_EQL  ,  KC_LCBR ,  KC_RCBR ,  KC_QUOT ,
-                KC_TAB  ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_BSLS         ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_SLSH ,
+                KC_SPC  ,  KC_DOLLAR ,  KC_PERCENT  ,  KC_CIRC  ,  KC_GRV          ,  KC_MINS ,  KC_EQL  ,  KC_LCBR ,  KC_RCBR ,  KC_QUOT ,
+                KC_TAB  ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_BSLS         ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_GRV  ,
                                         KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_MEDIA] = LAYOUT_split_3x5_3(
@@ -96,6 +96,7 @@ enum combos {
     COMBO_RETURN_LEFT,
     COMBO_RETURN_RIGHT,
     COMBO_STICKY_SHIFT,
+    COMBO_CAPS_WORD,
     COMBO_LENGTH
 };
 
@@ -118,6 +119,7 @@ const uint16_t PROGMEM combo_tab_right[]     = {KC_H                 ,  KC_N    
 const uint16_t PROGMEM combo_return_left[]   = {KC_T                 ,  KC_G                   ,  COMBO_END};
 const uint16_t PROGMEM combo_return_right[]  = {KC_Y                 ,  KC_H                   ,  COMBO_END};
 const uint16_t PROGMEM combo_sticky_shift[]  = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
+const uint16_t PROGMEM combo_caps_word[]     = {LCTL_T(KC_A)         ,  RCTL_T(KC_SCLN)        ,  COMBO_END};
 
 combo_t key_combos[] = {
     [COMBO_VERSION]       = COMBO_ACTION(   combo_version    ),
@@ -137,6 +139,7 @@ combo_t key_combos[] = {
     [COMBO_RETURN_LEFT]   = COMBO(   combo_return_left        , KC_ENT                        ),
     [COMBO_RETURN_RIGHT]  = COMBO(   combo_return_right       , KC_ENT                        ),
     [COMBO_STICKY_SHIFT]  = COMBO(   combo_sticky_shift       , OSM(MOD_LSFT)                 ),
+    [COMBO_CAPS_WORD]     = COMBO(   combo_caps_word          , CW_TOGG                       ),
 };
 
 const key_override_t override_control_h = ko_make_basic(MOD_MASK_CTRL, KC_H, KC_BSPC);
