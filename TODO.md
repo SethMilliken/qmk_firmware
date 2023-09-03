@@ -1,0 +1,3 @@
+- reverse shift numpad
+- screen shot bindings
+- aliases for window manipulation bindings
