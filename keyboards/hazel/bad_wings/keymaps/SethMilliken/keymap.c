@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.62.0"
+#define CONFIG_VERSION "1.62.1"
 
 #define HYPE(x) C(A(G(x)))
 
