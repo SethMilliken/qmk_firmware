@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.62.0"
+#define CONFIG_VERSION "1.62.1"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -118,8 +118,8 @@ const uint16_t PROGMEM combo_gui_right[]     = {KC_SLSH              ,  RALT_T(K
 const uint16_t PROGMEM combo_alt_right[]     = {RCTL_T(KC_QUOT)      ,  RALT_T(KC_BSLS)        ,  COMBO_END};
 const uint16_t PROGMEM combo_inverse_winl[]  = {LT(_WIN_LEFT,KC_TAB) ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
 const uint16_t PROGMEM combo_inverse_winr[]  = {LT(_MEDIA,KC_ESC)    ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
-const uint16_t PROGMEM combo_swap_left[]     = {KC_Q                 ,  KC_T                   ,  COMBO_END};
-const uint16_t PROGMEM combo_swap_right[]    = {KC_Y                 ,  KC_P                   ,  COMBO_END};
+const uint16_t PROGMEM combo_swap_left[]     = {KC_Q                 ,  KC_R                   ,  COMBO_END};
+const uint16_t PROGMEM combo_swap_right[]    = {KC_U                 ,  KC_P                   ,  COMBO_END};
 const uint16_t PROGMEM combo_tab_left[]      = {KC_G                 ,  KC_B                   ,  COMBO_END};
 const uint16_t PROGMEM combo_tab_right[]     = {KC_H                 ,  KC_N                   ,  COMBO_END};
 const uint16_t PROGMEM combo_return_left[]   = {KC_T                 ,  KC_G                   ,  COMBO_END};
