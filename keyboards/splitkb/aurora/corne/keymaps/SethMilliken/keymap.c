@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.62.1"
+#define CONFIG_VERSION "1.62.2"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -32,9 +32,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                       KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_LNUM] = LAYOUT_split_3x6_3(
-                XXXXXXX    ,  KC_LT      ,  KC_7      ,  KC_8        ,  KC_9     ,  KC_0            ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX     ,
-                XXXXXXX    ,  KC_GT      ,  KC_4      ,  KC_5        ,  KC_6     ,  KC_TILDE        ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , S(KC_QUOT)  ,
-                XXXXXXX    ,  KC_KP_PLUS ,  KC_1      ,  KC_2        ,  KC_3     ,  KC_PIPE         ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX     ,
+                XXXXXXX    ,  KC_LT      ,  KC_7      ,  KC_8        ,  KC_9     ,  KC_0            ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    , XXXXXXX  ,
+                XXXXXXX    ,  KC_GT      ,  KC_4      ,  KC_5        ,  KC_6     ,  KC_TILDE        ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  S(KC_QUOT) , XXXXXXX  , 
+                XXXXXXX    ,  KC_KP_PLUS ,  KC_1      ,  KC_2        ,  KC_3     ,  KC_PIPE         ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    , XXXXXXX  ,
                                                          KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_NUMPAD] = LAYOUT_split_3x6_3(
