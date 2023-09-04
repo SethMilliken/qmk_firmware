@@ -1,17 +1,18 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.56.0"
+#define CONFIG_VERSION "1.61.0"
 
 #define HYPE(x) C(A(G(x)))
 
 // KEYMAP {{{
 enum araxia_layers {
     _BASE,            // 0
-    _SYMBOLS,         // 6
-    _MEDIA,           // 3
-    _NUMPAD,          // 2
-    _WIN_LEFT,        // 4
-    _WIN_RIGHT,       // 5
+    _SYMBOLS,         // 1
+    _LNUM,            // 2
+    _NUMPAD,          // 3
+    _MEDIA,           // 4
+    _WIN_LEFT,        // 5
+    _WIN_RIGHT,       // 6
     _ADJUST,          // 7
     _LIGHTING,        // 8
     _DISCORD          // 9
@@ -22,25 +23,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 LT(_WIN_LEFT,KC_Q) ,  KC_W                ,  KC_E                 ,  KC_R                   ,  KC_T                 ,  KC_Y               ,  KC_U               ,  KC_I             ,  KC_O         ,  LT(_WIN_RIGHT,KC_P) ,
                 LCTL_T(KC_A)       ,  LGUI_T(KC_S)        ,  LALT_T(KC_D)         ,  LSFT_T(KC_F)           ,  KC_G                 ,  KC_H               ,  RSFT_T(KC_J)       ,  LALT_T(KC_K)     ,  RGUI_T(KC_L) ,  RCTL_T(KC_SCLN)     ,
                 KC_Z               ,  KC_X                ,  KC_C                 ,  KC_V                   ,  KC_B                 ,  KC_N               ,  KC_M               ,  KC_COMMA         ,  KC_DOT       ,  KC_SLSH             ,
-                                                             LGUI_T(KC_ENT)       ,  LSFT_T(C(KC_W))        ,  LT(_SYMBOLS,KC_ESC)  ,  LT(_MEDIA,KC_ESC)  ,  LT(_NUMPAD,KC_SPC) ,  RGUI_T(KC_COLON)
+                                                             LGUI_T(KC_ENT)       ,  LT(_LNUM,C(KC_W))      ,  LT(_SYMBOLS,KC_ESC)  ,  LT(_MEDIA,KC_ESC)  ,  LT(_NUMPAD,KC_SPC) ,  RGUI_T(KC_COLON)
         ),
 	[_SYMBOLS] = LAYOUT_split_3x5_3(
-                KC_BSPC ,  KC_AMPR   ,  KC_ASTERISK ,  KC_LPRN  ,  KC_RPRN         ,  KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  KC_SCLN ,
-                KC_SPC  ,  KC_DOLLAR ,  KC_PERCENT  ,  KC_CIRC  ,  KC_GRV          ,  KC_MINS ,  KC_EQL  ,  KC_LCBR ,  KC_RCBR ,  KC_QUOT ,
-                KC_TAB  ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_BSLS         ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_GRV  ,
-                                        KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+                KC_COMMA ,  KC_AMPR   ,  KC_ASTERISK ,  KC_TAB   ,  KC_BSLS         ,  KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  KC_SCLN ,
+                KC_DOT   ,  KC_DOLLAR ,  KC_PERCENT  ,  KC_CIRC  ,  KC_GRV          ,  KC_MINS ,  KC_EQL  ,  KC_LCBR ,  KC_RCBR ,  KC_QUOT ,
+                KC_EQL   ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_ENT          ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_GRV  ,
+                                         KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+        ),
+	[_LNUM] = LAYOUT_split_3x5_3(
+                KC_LT      ,  KC_7      ,  KC_8        ,  KC_9     ,  KC_0            ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+                KC_GT      ,  KC_4      ,  KC_5        ,  KC_6     ,  KC_TILDE        ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+                KC_KP_PLUS ,  KC_1      ,  KC_2        ,  KC_3     ,  KC_PIPE         ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+                                           KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+        ),
+	[_NUMPAD] = LAYOUT_split_3x5_3(
+                KC_COMMA ,  KC_KP_7    ,  KC_KP_8    ,  KC_KP_9    ,  KC_KP_0       ,  C(KC_F2)  ,  C(KC_F3)  ,  C(KC_8) ,  G(S(KC_SLSH)) ,  C(KC_F5)      ,
+                KC_DOT   ,  KC_KP_4    ,  KC_KP_5    ,  KC_KP_6    ,  KC_COLON      ,  KC_LEFT   ,  KC_DOWN   ,  KC_UP   ,  KC_RGHT       ,  KC_GRV        ,
+                KC_EQL   ,  KC_KP_1    ,  KC_KP_2    ,  KC_KP_3    ,  KC_MINS       ,  KC_PGUP   ,  KC_PGDN   ,  KC_HOME ,  KC_END        ,  KC_NUM_LOCK   ,
+                                          KC_TRNS    ,  KC_TRNS    ,  KC_TRNS       ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS
         ),
 	[_MEDIA] = LAYOUT_split_3x5_3(
                 KC_F1   ,  KC_F2   ,  KC_F3   ,  KC_F4   ,  KC_F5   ,  KC_MUTE ,  KC_MPRV ,  KC_MPLY ,  KC_MNXT ,  KC_BRID ,  
                 KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,  KC_VOLD ,  KC_VOLU ,  XXXXXXX ,  XXXXXXX ,  KC_BRIU ,
                 KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
                                       KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
-        ),
-	[_NUMPAD] = LAYOUT_split_3x5_3(
-                KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0          ,  C(KC_F2)  ,  C(KC_F3)  ,  C(KC_8) ,  G(S(KC_SLSH)) ,  C(KC_F5)      ,
-                KC_DOT   ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_COLON      ,  KC_LEFT   ,  KC_DOWN   ,  KC_UP   ,  KC_RGHT       ,  KC_GRV        ,
-                KC_EQL   ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_MINS       ,  KC_PGUP   ,  KC_PGDN   ,  KC_HOME ,  KC_END        ,  KC_NUM_LOCK   ,
-                                       KC_TRNS ,  KC_TRNS ,  KC_TRNS       ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS
         ),
 	[_WIN_LEFT] = LAYOUT_split_3x5_3(
                 LGUI(KC_GRV) ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR)     ,  RCS(KC_Y)  ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  RCS(KC_P)     ,
@@ -189,7 +196,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
         }
     }
-    /* Workaround for mod-tap not supporting modified tap keycodes */
+    /* Workaround for mod-tap and layer-tap not supporting modified tap keycodes */
     switch (keycode) {
         case RGUI_T(KC_COLON):
             if (record->tap.count && record->event.pressed) {
@@ -197,7 +204,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;         // Return false to ignore further processing of key
             }
             break;
-        case LSFT_T(KC_W):
+        case LT(_LNUM,C(KC_W)):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(C(KC_W));  // Send C(KC_W) on tap
                 return false;         // Return false to ignore further processing of key
