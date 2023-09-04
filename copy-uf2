@@ -3,7 +3,11 @@ TARGET=$1
 if [ "$TARGET" == "ksanti" ]; then
 COMMAND="cp *.uf2 /Volumes/Users/seth/Desktop/share/qmk-firmware"
 else
+    if [ "$TARGET" == "pc" ]; then
+COMMAND="cp *.uf2 /mnt/c/Users/seth/Desktop/share/qmk-firmware/"
+    else
 COMMAND="scp *.uf2 191-grosvenor-imac.local:~/Desktop/"
+    fi
 fi
 echo "$COMMAND"
 $COMMAND
