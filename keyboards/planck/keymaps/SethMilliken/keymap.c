@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.90.0"
+#define CONFIG_VERSION "1.91.0"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -20,10 +20,10 @@ enum araxia_layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BASE] = LAYOUT_planck_grid(
-LT(_WIN_LEFT,KC_Q) ,  KC_W         ,  KC_E         ,  KC_R           ,  KC_T              , KC_F1                ,  KC_F2              ,  KC_Y               ,  KC_U             ,  KC_I         ,  KC_O         ,  LT(_WIN_RIGHT,KC_P) ,
-LCTL_T(KC_A)       ,  LGUI_T(KC_S) ,  LALT_T(KC_D) ,  LSFT_T(KC_F)   ,  KC_G              , KC_F3                ,  KC_F4              ,  KC_H               ,  RSFT_T(KC_J)     ,  LALT_T(KC_K) ,  RGUI_T(KC_L) ,  RCTL_T(KC_SCLN)     ,
-KC_Z               ,  KC_X         ,  KC_C         ,  KC_V           ,  KC_B              , KC_F5                ,  KC_F6              ,  KC_N               ,  KC_M             ,  KC_COMMA     ,  KC_DOT       ,  KC_SLSH             ,
-KC_F7              ,  KC_F8        ,  KC_F9        ,  LGUI_T(KC_ENT) ,  LT(_LNUM,C(KC_W)) , LT(_SYMBOLS,KC_ESC)  ,  LT(_MEDIA,KC_ESC)  ,  LT(_NUMPAD,KC_SPC) ,  RGUI_T(KC_COLON) ,  KC_F10       ,  KC_F11       ,  KC_F12
+LT(_WIN_LEFT,KC_Q) ,  KC_W         ,  KC_E           ,  KC_R              ,  KC_T                ,    KC_F1 ,  KC_F2  ,    KC_Y               ,  KC_U               ,  KC_I             ,  KC_O         ,  LT(_WIN_RIGHT,KC_P) ,
+LCTL_T(KC_A)       ,  LGUI_T(KC_S) ,  LALT_T(KC_D)   ,  LSFT_T(KC_F)      ,  KC_G                ,    KC_F3 ,  KC_F4  ,    KC_H               ,  RSFT_T(KC_J)       ,  LALT_T(KC_K)     ,  RGUI_T(KC_L) ,  RCTL_T(KC_SCLN)     ,
+KC_Z               ,  KC_X         ,  KC_C           ,  KC_V              ,  KC_B                ,    KC_F5 ,  KC_F6  ,    KC_N               ,  KC_M               ,  KC_COMMA         ,  KC_DOT       ,  KC_SLSH             ,
+KC_F7              ,  KC_F8        ,  LGUI_T(KC_ENT) ,  LT(_LNUM,C(KC_W)) ,  LT(_SYMBOLS,KC_ESC) ,    KC_F9 ,  KC_F10 ,    LT(_MEDIA,KC_ESC)  ,  LT(_NUMPAD,KC_SPC) ,  RGUI_T(KC_COLON) ,  KC_F11       ,  KC_F12
         ),
 	[_SYMBOLS] = LAYOUT_planck_grid(
 KC_COMMA ,  KC_AMPR   ,  KC_ASTERISK ,  KC_TILDE ,  KC_BSLS ,    KC_TRNS ,  KC_TRNS ,    KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  S(KC_QUOT) ,
