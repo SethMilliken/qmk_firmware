@@ -1,7 +1,7 @@
+# see also users/SethMilliken/rules.mk
+
 RGBLIGHT_ENABLE   = yes
 RGB_MATRIX_ENABLE = no
-
-CAPS_WORD_ENABLE  = yes
 
 # For Liatris
 BOARD = GENERIC_RP_RP2040
