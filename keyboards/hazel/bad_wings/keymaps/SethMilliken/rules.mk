@@ -1,3 +1,1 @@
-MOUSEKEY_ENABLE			= yes
-EXTRAKEY_ENABLE			= yes
-CAPS_WORD_ENABLE		= yes
+# see also users/SethMilliken/rules.mk

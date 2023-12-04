@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.62.2"
+#define CONFIG_VERSION "1.91.0"
 
 #define HYPE(x) C(A(G(x)))
 
@@ -20,72 +20,72 @@ enum araxia_layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BASE] = LAYOUT_split_3x6_3(
-                LT(_WIN_LEFT,KC_TAB) ,  KC_Q            ,  KC_W                ,  KC_E                 ,  KC_R                   ,  KC_T                 ,  KC_Y               ,  KC_U             ,  KC_I         ,  KC_O         ,  KC_P             ,  LT(_WIN_RIGHT,KC_BSPC)   ,
-                      LCTL_T(KC_ENT) ,  LCTL_T(KC_A)    ,  LGUI_T(KC_S)        ,  LALT_T(KC_D)         ,  LSFT_T(KC_F)           ,  KC_G                 ,  KC_H               ,  RSFT_T(KC_J)     ,  RALT_T(KC_K) ,  RGUI_T(KC_L) ,  RCTL_T(KC_SCLN)  ,  RCTL_T(KC_QUOT)          ,
-                      LALT_T(KC_GRV) ,  KC_Z            ,  KC_X                ,  KC_C                 ,  KC_V                   ,  KC_B                 ,  KC_N               ,  KC_M             ,  KC_COMMA     ,  KC_DOT       ,  KC_SLSH          ,  RALT_T(KC_BSLS)          ,
-                                                           LGUI_T(KC_ENT)      ,  LT(_LNUM,C(KC_W))    ,  LT(_SYMBOLS,KC_ESC)    ,  LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC) ,  RGUI_T(KC_COLON)
+     XXXXXXX ,  LT(_WIN_LEFT,KC_Q) ,  KC_W         ,  KC_E           ,  KC_R              ,  KC_T                ,    KC_Y              ,  KC_U               ,  KC_I             ,  KC_O         ,  LT(_WIN_RIGHT,KC_P) , XXXXXXX ,
+     XXXXXXX ,  LCTL_T(KC_A)       ,  LGUI_T(KC_S) ,  LALT_T(KC_D)   ,  LSFT_T(KC_F)      ,  KC_G                ,    KC_H              ,  RSFT_T(KC_J)       ,  LALT_T(KC_K)     ,  RGUI_T(KC_L) ,  RCTL_T(KC_SCLN)     , XXXXXXX ,
+     XXXXXXX ,  KC_Z               ,  KC_X         ,  KC_C           ,  KC_V              ,  KC_B                ,    KC_N              ,  KC_M               ,  KC_COMMA         ,  KC_DOT       ,  KC_SLSH             , XXXXXXX ,
+                                                      LGUI_T(KC_ENT) ,  LT(_LNUM,C(KC_W)) ,  LT(_SYMBOLS,KC_ESC) ,    LT(_MEDIA,KC_ESC) ,  LT(_NUMPAD,KC_SPC) ,  RGUI_T(KC_COLON)
         ),
 	[_SYMBOLS] = LAYOUT_split_3x6_3(
-                XXXXXXX    ,  KC_LT   ,  KC_AMPR   ,  KC_ASTERISK ,  KC_TAB   ,  KC_BSLS         ,  KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  KC_SCLN ,  XXXXXXX  ,
-                XXXXXXX    ,  KC_GT   ,  KC_DOLLAR ,  KC_PERCENT  ,  KC_CIRC  ,  KC_GRV          ,  KC_MINS ,  KC_EQL  ,  KC_LCBR ,  KC_RCBR ,  KC_QUOT ,  XXXXXXX  ,
-                XXXXXXX    ,  KC_PLUS ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_ENT          ,  KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_GRV  ,  XXXXXXX  ,
-                                                      KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+     XXXXXXX ,  KC_COMMA ,  KC_AMPR   ,  KC_ASTERISK ,  KC_TILDE ,  KC_BSLS ,    KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  S(KC_QUOT) ,  XXXXXXX ,
+     XXXXXXX ,  KC_DOT   ,  KC_DOLLAR ,  KC_PERCENT  ,  KC_CIRC  ,  KC_TAB  ,    KC_MINS ,  KC_EQL  ,  KC_LCBR ,  KC_RCBR ,  KC_QUOT    ,  XXXXXXX ,
+     XXXXXXX ,  KC_EQL   ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_PIPE ,    KC_UNDS ,  KC_PLUS ,  KC_LBRC ,  KC_RBRC ,  KC_GRV     ,  XXXXXXX ,
+                                         KC_TRNS     ,  KC_TRNS  ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_LNUM] = LAYOUT_split_3x6_3(
-                XXXXXXX    ,  KC_LT      ,  KC_7      ,  KC_8        ,  KC_9     ,  KC_0            ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    , XXXXXXX  ,
-                XXXXXXX    ,  KC_GT      ,  KC_4      ,  KC_5        ,  KC_6     ,  KC_TILDE        ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  S(KC_QUOT) , XXXXXXX  , 
-                XXXXXXX    ,  KC_KP_PLUS ,  KC_1      ,  KC_2        ,  KC_3     ,  KC_PIPE         ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    , XXXXXXX  ,
-                                                         KC_TRNS     ,  KC_TRNS  ,  KC_TRNS         ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+     XXXXXXX ,  KC_COMMA ,  KC_7 ,  KC_8    ,  KC_9    ,  KC_0     ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    , XXXXXXX ,
+     XXXXXXX ,  KC_DOT   ,  KC_4 ,  KC_5    ,  KC_6    ,  KC_COLON ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  S(KC_QUOT) , XXXXXXX , 
+     XXXXXXX ,  KC_EQL   ,  KC_1 ,  KC_2    ,  KC_3    ,  KC_MINS  ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    , XXXXXXX ,
+                                    KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_NUMPAD] = LAYOUT_split_3x6_3(
-                KC_ASTERISK  ,  KC_COMMA ,  KC_KP_7    ,  KC_KP_8    ,  KC_KP_9    ,  KC_KP_0       ,  C(KC_F2)  ,  C(KC_F3)  ,  C(KC_8) ,  G(S(KC_SLSH)) ,  C(KC_F5)      ,  KC_TAB    ,
-                KC_SLSH      ,  KC_DOT   ,  KC_KP_4    ,  KC_KP_5    ,  KC_KP_6    ,  KC_COLON      ,  KC_LEFT   ,  KC_DOWN   ,  KC_UP   ,  KC_RGHT       ,  XXXXXXX       ,  KC_ENT    ,
-                KC_KP_PLUS   ,  KC_EQL   ,  KC_KP_1    ,  KC_KP_2    ,  KC_KP_3    ,  KC_MINS       ,  KC_PGUP   ,  KC_PGDN   ,  KC_HOME ,  KC_END        ,  KC_NUM_LOCK   ,  A(KC_F4)  ,
-                                                          KC_TRNS    ,  KC_TRNS    ,  KC_TRNS       ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS
+     XXXXXXX ,  KC_COMMA ,  KC_7 ,  KC_8    ,  KC_9    ,  KC_0     ,    C(KC_F2) ,  C(KC_F3) ,  C(KC_8) ,  G(S(KC_SLSH)) ,  C(KC_F5)    , XXXXXXX ,
+     XXXXXXX ,  KC_DOT   ,  KC_4 ,  KC_5    ,  KC_6    ,  KC_COLON ,    KC_LEFT  ,  KC_DOWN  ,  KC_UP   ,  KC_RGHT       ,  KC_GRV      , XXXXXXX ,
+     XXXXXXX ,  KC_EQL   ,  KC_1 ,  KC_2    ,  KC_3    ,  KC_MINS  ,    KC_PGUP  ,  KC_PGDN  ,  KC_HOME ,  KC_END        ,  KC_NUM_LOCK , XXXXXXX ,
+                                    KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,    KC_TRNS  ,  KC_TRNS  ,  KC_TRNS
         ),
 	[_MEDIA] = LAYOUT_split_3x6_3(
-                KC_TRNS ,  KC_F1   ,  KC_F2   ,  KC_F3   ,  KC_F4   ,  KC_F5   ,  KC_MUTE ,  KC_MPRV ,  KC_MPLY ,  KC_MNXT ,  KC_BRID ,  KC_BRIU ,
-                KC_TRNS ,  KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,  KC_VOLD ,  KC_VOLU ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-                KC_TRNS ,  KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-                                                 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+     XXXXXXX ,  KC_F1   ,  KC_F2   ,  KC_F3   ,  KC_F4   ,  KC_F5   ,  KC_MUTE ,  KC_MPRV ,  KC_MPLY ,  KC_MNXT ,  KC_BRID , XXXXXXX ,  
+     XXXXXXX ,  KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,  KC_VOLD ,  KC_VOLU ,  XXXXXXX ,  XXXXXXX ,  KC_BRIU , XXXXXXX ,
+     XXXXXXX ,  KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
+                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_WIN_LEFT] = LAYOUT_split_3x6_3(
-                KC_TRNS ,  LGUI(KC_GRV) ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR)     ,  RCS(KC_Y)  ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  RCS(KC_P)     ,  MO(_WIN_RIGHT) ,
-                KC_PWR  ,  LGUI(KC_TAB) ,  G(C(KC_4))    ,  G(C(KC_3))    ,  G(C(KC_2))    ,  G(C(KC_1))        ,  RCS(KC_H)  ,  RCS(KC_J) ,  RCS(KC_K)  ,  RCS(KC_L)  ,  RCS(KC_COLON) ,  XXXXXXX        ,
-                KC_SLEP ,  SGUI(KC_TAB) ,  G(C(S(KC_4))) ,  G(C(S(KC_3))) ,  G(C(S(KC_2))) ,  G(C(S(KC_1)))     ,  RCS(KC_N)  ,  RCS(KC_M) ,  RCS(KC_LT) ,  RCS(KC_GT) ,  RCS(KC_SLSH)  ,  XXXXXXX        ,
-                                                            KC_TRNS       ,  KC_TRNS       ,  KC_TRNS           ,  KC_TRNS    ,  KC_TRNS   ,  KC_TRNS
+     XXXXXXX ,  KC_TRNS      ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR)     ,  RCS(KC_Y)  ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  LT(_WIN_RIGHT,RCS(KC_P)) , XXXXXXX ,
+     XXXXXXX ,  LGUI(KC_GRV) ,  G(C(KC_4))    ,  G(C(KC_3))    ,  G(C(KC_2))    ,  G(C(KC_1))        ,  RCS(KC_H)  ,  RCS(KC_J) ,  RCS(KC_K)  ,  RCS(KC_L)  ,  RCS(KC_COLON)            , XXXXXXX ,
+     XXXXXXX ,  LGUI(KC_TAB) ,  G(C(S(KC_4))) ,  G(C(S(KC_3))) ,  G(C(S(KC_2))) ,  G(C(S(KC_1)))     ,  RCS(KC_N)  ,  RCS(KC_M) ,  RCS(KC_LT) ,  RCS(KC_GT) ,  RCS(KC_SLSH)             , XXXXXXX ,
+                                                 KC_TRNS       ,  KC_TRNS       ,  KC_TRNS           ,  KC_TRNS    ,  KC_TRNS   ,  KC_TRNS
         ),
 	[_WIN_RIGHT] = LAYOUT_split_3x6_3(
-                MO(_WIN_LEFT) ,  RCS(KC_Q) ,  RCS(KC_W) ,  RCS(KC_E) ,  RCS(KC_R) ,  RCS(KC_T)       ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR) ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  LGUI(KC_GRV) ,  KC_TRNS  ,
-                XXXXXXX       ,  RCS(KC_A) ,  RCS(KC_S) ,  RCS(KC_D) ,  RCS(KC_F) ,  RCS(KC_G)       ,  G(C(KC_1))    ,  G(C(KC_2))    ,  G(C(KC_3))    ,  G(C(KC_4))    ,  LGUI(KC_TAB) ,  KC_PWR   ,
-                XXXXXXX       ,  RCS(KC_Z) ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B)       ,  G(C(S(KC_1))) ,  G(C(S(KC_2))) ,  G(C(S(KC_3))) ,  G(C(S(KC_4))) ,  SGUI(KC_TAB) ,  KC_SLEP  ,
-                                                           KC_TRNS   ,  KC_TRNS   ,  KC_TRNS         ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS
+     XXXXXXX ,  LT(_WIN_LEFT,RCS(KC_Q)) ,  RCS(KC_W) ,  RCS(KC_E) ,  RCS(KC_R) ,  RCS(KC_T)       ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR) ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  KC_TRNS      , XXXXXXX ,
+     XXXXXXX ,                RCS(KC_A) ,  RCS(KC_S) ,  RCS(KC_D) ,  RCS(KC_F) ,  RCS(KC_G)       ,  G(C(KC_1))    ,  G(C(KC_2))    ,  G(C(KC_3))    ,  G(C(KC_4))    ,  LGUI(KC_GRV) , XXXXXXX ,
+     XXXXXXX ,                RCS(KC_Z) ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B)       ,  G(C(S(KC_1))) ,  G(C(S(KC_2))) ,  G(C(S(KC_3))) ,  G(C(S(KC_4))) ,  LGUI(KC_TAB) , XXXXXXX ,
+                                                        KC_TRNS   ,  KC_TRNS   ,  KC_TRNS         ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS
         ),
         // tri-state layer; do not switch to directly
 	[_ADJUST] = LAYOUT_split_3x6_3(
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    ,  XXXXXXX    ,  XXXXXXX    ,  XXXXXXX    ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX,
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  QK_MACRO_0 ,  QK_MACRO_1 ,  QK_MACRO_2 ,  QK_MACRO_3 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX,
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_DOT     ,  CW_TOGG    ,  XXXXXXX    ,  XXXXXXX    ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX,
-                                                 XXXXXXX ,  XXXXXXX ,  KC_TRNS    ,  KC_TRNS    ,  XXXXXXX    ,  XXXXXXX
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    ,  XXXXXXX    ,  CW_TOGG    ,  XXXXXXX    ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  QK_MACRO_0 ,  QK_MACRO_1 ,  QK_MACRO_2 ,  QK_MACRO_3 ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_GRV     ,  KC_QUOT    ,  S(KC_QUOT) ,  XXXXXXX    ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
+                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS    ,  KC_TRNS    ,  KC_TRNS    ,  KC_TRNS
         ),
         // tri-state layer; do not switch to directly
 	[_LIGHTING] = LAYOUT_split_3x6_3(
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  RGB_TOG ,  QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 ,  XXXXXXX ,
-                KC_LCTL ,  XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_MOD ,  DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 ,  XXXXXXX ,
-                KC_LALT ,  XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  CW_TOGG ,  QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 ,  XXXXXXX ,
-                                                 KC_LGUI ,  KC_LSFT ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    ,  XXXXXXX
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_TOG ,  QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 , XXXXXXX ,
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  RGB_MOD ,  DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 , XXXXXXX ,
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  CW_TOGG ,  QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 , XXXXXXX ,
+                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS    ,  KC_TRNS
         ),
         // tri-state layer; do not switch to directly
 	[_DISCORD] = LAYOUT_split_3x6_3(
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      C(S(KC_N)) ,  XXXXXXX       ,  XXXXXXX     ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      KC_PGDN    ,  A(S(KC_DOWN)) ,  A(S(KC_UP)) ,  KC_PGUP ,  XXXXXXX ,  XXXXXXX ,
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      KC_PGUP    ,  KC_PGDN       ,  KC_HOME     ,  KC_END  ,  XXXXXXX ,  XXXXXXX ,
-                                                 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,      KC_TRNS    ,  KC_TRNS       ,  KC_TRNS
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      C(S(KC_N)) ,  XXXXXXX       ,  XXXXXXX     ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      KC_PGDN    ,  A(S(KC_DOWN)) ,  A(S(KC_UP)) ,  KC_PGUP ,  XXXXXXX , XXXXXXX ,
+     XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      KC_PGUP    ,  KC_PGDN       ,  KC_HOME     ,  KC_END  ,  XXXXXXX , XXXXXXX ,
+                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,      KC_TRNS    ,  KC_TRNS       ,  KC_TRNS
         )
 };
 // }}}
 // COMBOS {{{
-enum myCombos {
+enum combos {
     COMBO_VERSION,
     COMBO_TMUX,
     COMBO_TMUX_MODE,
@@ -102,50 +102,57 @@ enum myCombos {
     COMBO_TAB_RIGHT,
     COMBO_RETURN_LEFT,
     COMBO_RETURN_RIGHT,
+    COMBO_RETURN_T_LEFT,
+    COMBO_RETURN_T_RIGHT,
     COMBO_STICKY_SHIFT,
     COMBO_CAPS_WORD,
     COMBO_LENGTH
 };
+
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM combo_version[]       = {LT(_WIN_LEFT,KC_TAB) ,  KC_Q                   ,  COMBO_END};
-const uint16_t PROGMEM combo_tmux[]          = {KC_U                 ,  KC_I                   ,  KC_O         ,  COMBO_END};
-const uint16_t PROGMEM combo_tmux_mode[]     = {KC_W                 ,  KC_E                   ,  KC_R         ,  COMBO_END};
-const uint16_t PROGMEM combo_del[]           = {KC_P                 ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
-const uint16_t PROGMEM combo_gui_left[]      = {LALT_T(KC_GRV)       ,  KC_Z                   ,  COMBO_END};
-const uint16_t PROGMEM combo_alt_left[]      = {LCTL_T(KC_ENT)       ,  LALT_T(KC_GRV)         ,  COMBO_END};
-const uint16_t PROGMEM combo_gui_right[]     = {KC_SLSH              ,  RALT_T(KC_BSLS)        ,  COMBO_END};
-const uint16_t PROGMEM combo_alt_right[]     = {RCTL_T(KC_QUOT)      ,  RALT_T(KC_BSLS)        ,  COMBO_END};
-const uint16_t PROGMEM combo_inverse_winl[]  = {LT(_WIN_LEFT,KC_TAB) ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
-const uint16_t PROGMEM combo_inverse_winr[]  = {LT(_MEDIA,KC_ESC)    ,  LT(_WIN_RIGHT,KC_BSPC) ,  COMBO_END};
-const uint16_t PROGMEM combo_swap_left[]     = {KC_Q                 ,  KC_R                   ,  COMBO_END};
-const uint16_t PROGMEM combo_swap_right[]    = {KC_U                 ,  KC_P                   ,  COMBO_END};
-const uint16_t PROGMEM combo_tab_left[]      = {KC_G                 ,  KC_B                   ,  COMBO_END};
-const uint16_t PROGMEM combo_tab_right[]     = {KC_H                 ,  KC_N                   ,  COMBO_END};
-const uint16_t PROGMEM combo_return_left[]   = {KC_T                 ,  KC_G                   ,  COMBO_END};
-const uint16_t PROGMEM combo_return_right[]  = {KC_Y                 ,  KC_H                   ,  COMBO_END};
-const uint16_t PROGMEM combo_sticky_shift[]  = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
-const uint16_t PROGMEM combo_caps_word[]     = {LCTL_T(KC_A)         ,  RCTL_T(KC_SCLN)        ,  COMBO_END};
+const uint16_t PROGMEM combo_version[]         = {LT(_WIN_LEFT,KC_Q)   ,  KC_W                   ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux[]            = {KC_U                 ,  KC_I                   ,  KC_O         ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux_mode[]       = {KC_W                 ,  KC_E                   ,  KC_R         ,  COMBO_END};
+const uint16_t PROGMEM combo_del[]             = {KC_O                 ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
+const uint16_t PROGMEM combo_gui_left[]        = {KC_Z                 ,  KC_X                   ,  COMBO_END};
+const uint16_t PROGMEM combo_alt_left[]        = {LCTL_T(KC_A)         ,  KC_Z                   ,  COMBO_END};
+const uint16_t PROGMEM combo_gui_right[]       = {KC_DOT               ,  KC_SLSH                ,  COMBO_END};
+const uint16_t PROGMEM combo_alt_right[]       = {RCTL_T(KC_COLON)     ,  KC_SLSH                ,  COMBO_END};
+const uint16_t PROGMEM combo_inverse_winl[]    = {LT(_WIN_LEFT,KC_Q)   ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
+const uint16_t PROGMEM combo_inverse_winr[]    = {LT(_MEDIA,KC_ESC)    ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
+const uint16_t PROGMEM combo_swap_left[]       = {LT(_WIN_LEFT,KC_Q)   ,  KC_R                   ,  COMBO_END};
+const uint16_t PROGMEM combo_swap_right[]      = {KC_U                 ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
+const uint16_t PROGMEM combo_tab_left[]        = {KC_G                 ,  KC_B                   ,  COMBO_END};
+const uint16_t PROGMEM combo_tab_right[]       = {KC_H                 ,  KC_N                   ,  COMBO_END};
+const uint16_t PROGMEM combo_return_left[]     = {KC_T                 ,  KC_G                   ,  COMBO_END};
+const uint16_t PROGMEM combo_return_right[]    = {KC_Y                 ,  KC_H                   ,  COMBO_END};
+const uint16_t PROGMEM combo_return_t_left[]   = {LT(_LNUM,C(KC_W))    ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
+const uint16_t PROGMEM combo_return_t_right[]  = {LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC)     ,  COMBO_END};
+const uint16_t PROGMEM combo_sticky_shift[]    = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
+const uint16_t PROGMEM combo_caps_word[]       = {LCTL_T(KC_A)         ,  RCTL_T(KC_SCLN)        ,  COMBO_END};
 
 combo_t key_combos[] = {
-    [COMBO_VERSION]       = COMBO_ACTION(   combo_version    ),
-    [COMBO_TMUX]          = COMBO_ACTION(   combo_tmux       ),
-    [COMBO_TMUX_MODE]     = COMBO_ACTION(   combo_tmux_mode  ),
-    [COMBO_DEL]           = COMBO(   combo_del                , KC_DEL                        ),
-    [COMBO_GUI_LEFT]      = COMBO(   combo_gui_left           , KC_LGUI                       ),
-    [COMBO_GUI_RIGHT]     = COMBO(   combo_gui_right          , KC_RGUI                       ),
-    [COMBO_ALT_LEFT]      = COMBO(   combo_alt_left           , KC_LALT                       ),
-    [COMBO_ALT_RIGHT]     = COMBO(   combo_alt_right          , KC_RALT                       ),
-    [COMBO_INVERSE_WINL]  = COMBO(   combo_inverse_winl       , MO(_WIN_RIGHT)                ),
-    [COMBO_INVERSE_WINR]  = COMBO(   combo_inverse_winr       , MO(_WIN_LEFT)                 ),
-    [COMBO_SWAP_LEFT]     = COMBO(   combo_swap_left          , LGUI(KC_TAB)                  ),
-    [COMBO_SWAP_RIGHT]    = COMBO(   combo_swap_right         , LGUI(KC_TAB)                  ),
-    [COMBO_TAB_LEFT]      = COMBO(   combo_tab_left           , KC_TAB                        ),
-    [COMBO_TAB_RIGHT]     = COMBO(   combo_tab_right          , KC_TAB                        ),
-    [COMBO_RETURN_LEFT]   = COMBO(   combo_return_left        , KC_ENT                        ),
-    [COMBO_RETURN_RIGHT]  = COMBO(   combo_return_right       , KC_ENT                        ),
-    [COMBO_STICKY_SHIFT]  = COMBO(   combo_sticky_shift       , OSM(MOD_LSFT)                 ),
-    [COMBO_CAPS_WORD]     = COMBO(   combo_caps_word          , CW_TOGG                       ),
+    [COMBO_VERSION]         = COMBO_ACTION(   combo_version    ),
+    [COMBO_TMUX]            = COMBO_ACTION(   combo_tmux       ),
+    [COMBO_TMUX_MODE]       = COMBO_ACTION(   combo_tmux_mode  ),
+    [COMBO_DEL]             = COMBO(   combo_del                , KC_DEL                        ),
+    [COMBO_GUI_LEFT]        = COMBO(   combo_gui_left           , KC_LGUI                       ),
+    [COMBO_GUI_RIGHT]       = COMBO(   combo_gui_right          , KC_RGUI                       ),
+    [COMBO_ALT_LEFT]        = COMBO(   combo_alt_left           , KC_LALT                       ),
+    [COMBO_ALT_RIGHT]       = COMBO(   combo_alt_right          , KC_RALT                       ),
+    [COMBO_INVERSE_WINL]    = COMBO(   combo_inverse_winl       , MO(_WIN_RIGHT)                ),
+    [COMBO_INVERSE_WINR]    = COMBO(   combo_inverse_winr       , MO(_WIN_LEFT)                 ),
+    [COMBO_SWAP_LEFT]       = COMBO(   combo_swap_left          , LGUI(KC_TAB)                  ),
+    [COMBO_SWAP_RIGHT]      = COMBO(   combo_swap_right         , LGUI(KC_TAB)                  ),
+    [COMBO_TAB_LEFT]        = COMBO(   combo_tab_left           , KC_TAB                        ),
+    [COMBO_TAB_RIGHT]       = COMBO(   combo_tab_right          , KC_TAB                        ),
+    [COMBO_RETURN_LEFT]     = COMBO(   combo_return_left        , KC_ENT                        ),
+    [COMBO_RETURN_RIGHT]    = COMBO(   combo_return_right       , KC_ENT                        ),
+    [COMBO_RETURN_T_LEFT]   = COMBO(   combo_return_t_left      , KC_ENT                        ),
+    [COMBO_RETURN_T_RIGHT]  = COMBO(   combo_return_t_right     , KC_ENT                        ),
+    [COMBO_STICKY_SHIFT]    = COMBO(   combo_sticky_shift       , OSM(MOD_LSFT)                 ),
+    [COMBO_CAPS_WORD]       = COMBO(   combo_caps_word          , CW_TOGG                       ),
 };
 
 const key_override_t override_control_h = ko_make_basic(MOD_MASK_CTRL, KC_H, KC_BSPC);

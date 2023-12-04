@@ -1,9 +1,3 @@
 #pragma once
 
-#define TAPPING_TERM 200
-#define PERMISSIVE_HOLD
-#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM_PER_KEY
-#define ONESHOT_TAP_TOGGLE 10
-#define ONESHOT_TIMEOUT 500
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+// see also: users/SethMilliken/config.h
