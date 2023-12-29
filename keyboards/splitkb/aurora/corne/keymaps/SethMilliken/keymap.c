@@ -168,7 +168,21 @@ combo_t key_combos[] = {
     [COMBO_CAPS_WORD]       = COMBO(   combo_caps_word          , CW_TOGG                       ),
 };
 
-const key_override_t override_control_h = ko_make_basic(MOD_MASK_CTRL, KC_H, KC_BSPC);
+bool flush_modifiers(bool key_down, void* context) {
+    send_keyboard_report();
+    return true;
+}
+
+const key_override_t override_control_h = {
+    .trigger_mods           = MOD_MASK_CTRL,
+    .trigger                = KC_H,
+    .replacement            = KC_BSPC,
+    .layers                 = ~0,
+    .suppressed_mods        = MOD_MASK_CTRL,
+    .options                = ko_options_default,
+    .custom_action          = flush_modifiers,
+    .enabled                = NULL
+};
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
