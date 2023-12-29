@@ -1,6 +1,8 @@
 /* Add configuration options here
  * c.f. https://github.com/qmk/qmk_firmware/blob/master/docs/config_options.md
 */
+#define CONFIG_VERSION "1.92.0"
+
 #define TAPPING_TERM 150
 #define QUICK_TAP_TERM 0            // for homerow mods
 #define COMBO_TERM 100

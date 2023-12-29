@@ -1,7 +1,5 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.91.0"
-
 #define HYPE(x) C(A(G(x)))
 
 // KEYMAP {{{
