@@ -51,22 +51,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,    KC_TRNS  ,  KC_TRNS  ,  KC_TRNS
         ),
 	[_MEDIA] = LAYOUT_split_3x5_3(
-                KC_F1   ,  KC_F2   ,  KC_F3   ,  KC_F4   ,  KC_F5   ,  KC_MUTE ,  KC_MPRV ,  KC_MPLY ,  KC_MNXT ,  KC_BRID ,  
-                KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,  KC_VOLD ,  KC_VOLU ,  XXXXXXX ,  XXXXXXX ,  KC_BRIU ,
-                KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+                KC_F1   ,  KC_F2   ,  KC_F3   ,  KC_F4   ,  KC_F5   ,    KC_MUTE ,  KC_MPRV ,  KC_MPLY ,  KC_MNXT ,  KC_BRID ,  
+                KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,    KC_VOLD ,  KC_VOLU ,  XXXXXXX ,  XXXXXXX ,  KC_BRIU ,
+                KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
 	[_WIN_LEFT] = LAYOUT_split_3x5_3(
-                KC_TRNS      ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR)     ,  RCS(KC_Y)  ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  LT(_WIN_RIGHT,RCS(KC_P)) ,
-                LGUI(KC_GRV) ,  G(C(KC_4))    ,  G(C(KC_3))    ,  G(C(KC_2))    ,  G(C(KC_1))        ,  RCS(KC_H)  ,  RCS(KC_J) ,  RCS(KC_K)  ,  RCS(KC_L)  ,  RCS(KC_COLON)            ,
-                LGUI(KC_TAB) ,  G(C(S(KC_4))) ,  G(C(S(KC_3))) ,  G(C(S(KC_2))) ,  G(C(S(KC_1)))     ,  RCS(KC_N)  ,  RCS(KC_M) ,  RCS(KC_LT) ,  RCS(KC_GT) ,  RCS(KC_SLSH)             ,
-                                                 KC_TRNS       ,  KC_TRNS       ,  KC_TRNS           ,  KC_TRNS    ,  KC_TRNS   ,  KC_TRNS
+                KC_TRNS      ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR) ,    RCS(KC_Y) ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  LT(_WIN_RIGHT,RCS(KC_P)) ,
+                LGUI(KC_GRV) ,  G(C(KC_4))    ,  G(C(KC_3))    ,  G(C(KC_2))    ,  G(C(KC_1))    ,    RCS(KC_H) ,  RCS(KC_J) ,  RCS(KC_K)  ,  RCS(KC_L)  ,  RCS(KC_COLON)            ,
+                LGUI(KC_TAB) ,  G(C(S(KC_4))) ,  G(C(S(KC_3))) ,  G(C(S(KC_2))) ,  G(C(S(KC_1))) ,    RCS(KC_N) ,  RCS(KC_M) ,  RCS(KC_LT) ,  RCS(KC_GT) ,  RCS(KC_SLSH)             ,
+                                                 KC_TRNS       ,  KC_TRNS       ,  KC_TRNS       ,    KC_TRNS   ,  KC_TRNS   ,  KC_TRNS
         ),
 	[_WIN_RIGHT] = LAYOUT_split_3x5_3(
-                LT(_WIN_LEFT,RCS(KC_Q)) ,  RCS(KC_W) ,  RCS(KC_E) ,  RCS(KC_R) ,  RCS(KC_T)       ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR) ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  KC_TRNS      ,
-                              RCS(KC_A) ,  RCS(KC_S) ,  RCS(KC_D) ,  RCS(KC_F) ,  RCS(KC_G)       ,  G(C(KC_1))    ,  G(C(KC_2))    ,  G(C(KC_3))    ,  G(C(KC_4))    ,  LGUI(KC_GRV) ,
-                              RCS(KC_Z) ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B)       ,  G(C(S(KC_1))) ,  G(C(S(KC_2))) ,  G(C(S(KC_3))) ,  G(C(S(KC_4))) ,  LGUI(KC_TAB) ,
-                                          KC_TRNS   ,  KC_TRNS   ,  KC_TRNS         ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS
+                LT(_WIN_LEFT,RCS(KC_Q)) ,  RCS(KC_W) ,  RCS(KC_E) ,  RCS(KC_R) ,  RCS(KC_T) ,    SGUI(KC_LCBR) ,  SGUI(KC_RCBR) ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  KC_TRNS      ,
+                              RCS(KC_A) ,  RCS(KC_S) ,  RCS(KC_D) ,  RCS(KC_F) ,  RCS(KC_G) ,    G(C(KC_1))    ,  G(C(KC_2))    ,  G(C(KC_3))    ,  G(C(KC_4))    ,  LGUI(KC_GRV) ,
+                              RCS(KC_Z) ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B) ,    G(C(S(KC_1))) ,  G(C(S(KC_2))) ,  G(C(S(KC_3))) ,  G(C(S(KC_4))) ,  LGUI(KC_TAB) ,
+                                                        KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,    KC_TRNS       ,  KC_TRNS       ,  KC_TRNS
         ),
         // tri-state layer; do not switch to directly
 	[_ADJUST] = LAYOUT_split_3x5_3(
@@ -77,17 +77,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
         // tri-state layer; do not switch to directly
 	[_LIGHTING] = LAYOUT_split_3x5_3(
-                XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_TOG ,  QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 ,
-                XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  RGB_MOD ,  DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 ,
-                XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  CW_TOGG ,  QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 ,
-                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS    ,  KC_TRNS
+                XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_TOG ,    QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 ,
+                XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  RGB_MOD ,    DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 ,
+                XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  CW_TOGG ,    QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 ,
+                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS    ,  KC_TRNS
         ),
         // tri-state layer; do not switch to directly
 	[_DISCORD] = LAYOUT_split_3x5_3(
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      C(S(KC_N)) ,  XXXXXXX       ,  XXXXXXX     ,  XXXXXXX ,  XXXXXXX ,
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      KC_PGDN    ,  A(S(KC_DOWN)) ,  A(S(KC_UP)) ,  KC_PGUP ,  XXXXXXX ,
-                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,      KC_PGUP    ,  KC_PGDN       ,  KC_HOME     ,  KC_END  ,  XXXXXXX ,
-                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,      KC_TRNS    ,  KC_TRNS       ,  KC_TRNS
+                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    C(S(KC_N)) ,  XXXXXXX       ,  XXXXXXX     ,  XXXXXXX ,  XXXXXXX ,
+                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_PGDN    ,  A(S(KC_DOWN)) ,  A(S(KC_UP)) ,  KC_PGUP ,  XXXXXXX ,
+                XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_PGUP    ,  KC_PGDN       ,  KC_HOME     ,  KC_END  ,  XXXXXXX ,
+                                      KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS    ,  KC_TRNS       ,  KC_TRNS
         ),
 	[_POINTER] = LAYOUT_split_3x5_3(
                 KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
@@ -207,6 +207,59 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                 SEND_STRING(SS_LCTL("a") "f");
             }
             break;
+    }
+}
+
+// check config.h to see if this is active
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // hold-preferred tapping-term for thumb cluster
+        case LT(_SYMBOLS,KC_ESC):
+        case LGUI_T(KC_ENT):
+        case LT(_LNUM,C(KC_W)):
+        case LT(_MEDIA,KC_ESC):
+        case LT(_NUMPAD,KC_SPC):
+        case RGUI_T(KC_COLON):
+            return HP_TAPPING_TERM;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
+// check config.h to see if this is active
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // permissive-hold for thumb cluster
+        case LT(_SYMBOLS,KC_ESC):
+        case LGUI_T(KC_ENT):
+        case LT(_LNUM,C(KC_W)):
+        case LT(_MEDIA,KC_ESC):
+        case LT(_NUMPAD,KC_SPC):
+        case RGUI_T(KC_COLON):
+            // Immediately select the hold action when another key is tapped.
+            return true;
+        default:
+            // Do not select the hold action when another key is tapped.
+            return false;
+    }
+}
+
+// check config.h to see if this is active
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // hold on other key for thumb cluster
+        case LT(_SYMBOLS,KC_ESC):
+        case LGUI_T(KC_ENT):
+        case LT(_LNUM,C(KC_W)):
+        case LT(_MEDIA,KC_ESC):
+        case LT(_NUMPAD,KC_SPC):
+        case RGUI_T(KC_COLON):
+        case LT(1, KC_BSPC):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
     }
 }
 
