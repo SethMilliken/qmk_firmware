@@ -1,8 +1,6 @@
 /* Add configuration options here
  * c.f. https://github.com/qmk/qmk_firmware/blob/master/docs/config_options.md
 */
-#define CONFIG_VERSION "1.92.4"
-
 #define TAPPING_TERM 200
 #define HP_TAPPING_TERM 125
 //#define TAPPING_TERM_PER_KEY
