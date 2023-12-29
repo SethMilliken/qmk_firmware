@@ -1,4 +1,4 @@
-#SRC += custom.c
+#SRC += shared.c
 CONSOLE_ENABLE 			= yes
 COMBO_ENABLE 			= yes
 KEY_OVERRIDE_ENABLE 		= yes
