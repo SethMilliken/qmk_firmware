@@ -13,7 +13,16 @@ enum araxia_layers {
     _WIN_RIGHT,       // 6
     _ADJUST,          // 7
     _LIGHTING,        // 8
-    _DISCORD          // 9
+    _DISCORD,         // 9
+    _POINTER          // 10
+};
+
+enum custom_keycodes {
+    WARPD_L = SAFE_RANGE,
+    WARPD_R,
+    WARPD_T,
+    WARPD_MOV,
+    WARPD_2P,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -61,10 +70,10 @@ KC_TRNS                 ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,   
         ),
         // tri-state layer; do not switch to directly
 	[_ADJUST] = LAYOUT_planck_grid(
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX    ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX    ,  CW_TOGG    ,  XXXXXXX    ,  XXXXXXX ,  XXXXXXX ,
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  QK_MACRO_0 ,    KC_TRNS ,  KC_TRNS ,    QK_MACRO_1 ,  QK_MACRO_2 ,  QK_MACRO_3 ,  XXXXXXX ,  XXXXXXX ,
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_GRV     ,    KC_TRNS ,  KC_TRNS ,    KC_QUOT    ,  S(KC_QUOT) ,  XXXXXXX    ,  XXXXXXX ,  XXXXXXX ,
-KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS    ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS    ,  KC_TRNS    ,  KC_TRNS    ,  KC_TRNS ,  KC_TRNS
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  CW_TOGG    ,  XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  WARPD_L ,    KC_TRNS ,  KC_TRNS ,    WARPD_R ,  WARPD_MOV  ,  WARPD_2P ,  XXXXXXX ,  XXXXXXX ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_GRV  ,    KC_TRNS ,  KC_TRNS ,    KC_QUOT ,  S(KC_QUOT) ,  XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,
+KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS    ,  KC_TRNS  ,  KC_TRNS ,  KC_TRNS
         ),
         // tri-state layer; do not switch to directly
 	[_LIGHTING] = LAYOUT_planck_grid(
@@ -79,6 +88,12 @@ XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,   
 XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_PGDN    ,  A(S(KC_DOWN)) ,  A(S(KC_UP)) ,  KC_PGUP ,  XXXXXXX ,
 XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP    ,  KC_PGDN       ,  KC_HOME     ,  KC_END  ,  XXXXXXX ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS    ,  KC_TRNS       ,  KC_TRNS     ,  KC_TRNS ,  KC_TRNS
+        ),
+	[_POINTER] = LAYOUT_split_3x6_3(
+KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+KC_ACL1 ,  KC_MS_L ,  KC_MS_D ,  KC_MS_R ,  KC_WH_D ,    KC_TRNS ,  KC_TRNS ,    KC_MS_L ,  KC_MS_D ,  KC_MS_U ,  KC_MS_R ,  XXXXXXX ,
+KC_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_BTN1 ,  KC_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         )
 };
 // }}}
@@ -186,16 +201,19 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
-            case QK_MACRO_0:
+            case WARPD_L:
                 SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LCTL)SS_TAP(X_S)SS_UP(X_LCTL)SS_UP(X_LGUI)"jf");
                 return false;
-            case QK_MACRO_1:
+            case WARPD_R:
                 SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LCTL)SS_TAP(X_S)SS_UP(X_LCTL)SS_UP(X_LGUI)"kf");
                 return false;
-            case QK_MACRO_2:
+            case WARPD_T:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LCTL)SS_TAP(X_S)SS_UP(X_LCTL)SS_UP(X_LGUI)"lf");
+                return false;
+            case WARPD_MOV:
                 SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LCTL)SS_TAP(X_J)SS_UP(X_LCTL)SS_UP(X_LGUI));
                 return false;
-            case QK_MACRO_3:
+            case WARPD_2P:
                 SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LCTL)SS_TAP(X_K)SS_UP(X_LCTL)SS_UP(X_LGUI));
                 return false;
         }
@@ -224,6 +242,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     state = update_tri_layer_state(state ,  _SYMBOLS   ,  _MEDIA    ,  _ADJUST);
     state = update_tri_layer_state(state ,  _MEDIA     ,  _NUMPAD   ,  _DISCORD);
     state = update_tri_layer_state(state ,  _WIN_RIGHT ,  _WIN_LEFT ,  _LIGHTING);
+    state = update_tri_layer_state(state ,  _LNUM      ,  _SYMBOLS  ,  _POINTER);
     return state;
 }
 
