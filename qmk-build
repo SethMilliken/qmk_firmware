@@ -1,21 +1,70 @@
 #!/bin/bash
+# Directory of symbolic links to keymaps
+BOARDS=mine
+
 TARGET=$1
-if [ "$TARGET" == "ksanti" ]; then
-COPY_DESTINATION="/Volumes/Users/seth/Desktop/share/qmk-firmware"
-else
-  if [ "$TARGET" == "pc" ]; then
-    COPY_DESTINATION="/mnt/c/Users/seth/Desktop/share/qmk-firmware/"
-  fi
+
+if [[ -z "$HOST" ]]; then
+    HOST="$(hostname)"
 fi
-if [ ! -d $COPY_DESTINATION ]; then
-    echo "Destination directory does not exist: $COPY_DESTINATION"
-    exit 1
-fi
-set -e
-cd badwingsmap/
-qmk compile
-cd ..
-cd splitkb-corne/
-qmk compile
-cd ..
-./copy-uf2 $TARGET
+
+function wait_for() {
+    DESTINATION=$1
+    printf "Waiting for ${DESTINATION}"
+    until [ -d "${DESTINATION}" ]; do
+        printf "."
+        sleep 1
+    done
+    printf "\n"
+}
+
+function build_all {
+    set -e
+    for BOARD in $(ls -1 ${BOARDS}); do
+        printf "Building ${BOARD}...\n"
+        cd ./${BOARDS}/${BOARD}
+        qmk compile
+        cd ../..
+    done
+}
+
+case "${HOST}" in
+    "ksanti")
+        COPY_DESTINATION="/Volumes/Users/seth/Desktop/share/qmk-firmware"
+        ;;
+    "pc")
+        COPY_DESTINATION="/mnt/c/Users/seth/Desktop/share/qmk-firmware/"
+        ;;
+    "191-grosvenor-imac.local")
+        COPY_DESTINATION="~/Desktop/"
+        ;;
+    "lapdesk.local")
+        ;;
+esac
+
+case "${TARGET}" in
+    "bad_wings")
+        COMMAND="qmk compile -kb hazel/bad_wings -km SethMilliken"
+        COPY_DESTINATION="/Volumes/RPI-RP2"
+        COPY_COMMAND="cp hazel_bad_wings_SethMilliken.uf2 ${COPY_DESTINATION}"
+        wait_for $COPY_DESTINATION
+        ;;
+    "planck")
+        COMMAND="qmk compile -kb planck/rev6_drop -km SethMilliken"
+        COPY_COMMAND="qmk flash -kb planck/rev6_drop"
+        ;;
+    "aurora_corne")
+        COMMAND="qmk compile -kb hazel/bad_wings -km SethMilliken"
+        COPY_DESTINATION="/Volumes/RPI-RP2"
+        COPY_COMMAND="cp hazel_bad_wings_SethMilliken.uf2 ${COPY_DESTINATION}"
+        wait_for $COPY_DESTINATION
+        ;;
+    *)
+        COMMAND="echo 'Provide specific target to flash.'"
+        ;;
+esac
+
+echo "$COMMAND"
+$COMMAND
+echo "$COPY_COMMAND"
+$COPY_COMMAND
