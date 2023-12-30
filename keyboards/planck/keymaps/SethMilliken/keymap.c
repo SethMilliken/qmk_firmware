@@ -67,7 +67,7 @@ XXXXXXX ,  KC_LEFT ,  KC_DOWN ,  KC_RIGHT ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,
 XXXXXXX ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP      ,  DIS_PREV_HIST ,  DIS_NEXT_HIST ,  XXXXXXX  ,  DIS_MENT   ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,  DF(_BASE) ,    KC_TRNS ,  KC_TRNS ,    DF(_BASE)    ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS  ,  KC_TRNS
         ),
-    [_POINTER] = LAYOUT_split_3x6_3(
+    [_POINTER] = LAYOUT_planck_grid(
 KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
 KC_ACL1 ,  KC_MS_L ,  KC_MS_D ,  KC_MS_R ,  KC_WH_D ,    KC_TRNS ,  KC_TRNS ,    KC_MS_L ,  KC_MS_D ,  KC_MS_U ,  KC_MS_R ,  XXXXXXX ,
 KC_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_BTN1 ,  KC_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
