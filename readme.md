@@ -34,3 +34,14 @@ QMK is developed and maintained by Jack Humbert of OLKB with contributions from 
 ## Official Website
 
 [qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
+
+## SethMilliken
+
+To use userspace:
+
+```
+qmk config user.overlay_dir=/Users/seth.milliken/sandbox/code/qmk_userspace
+```
+
+* Figure out why adding keymaps to userspace is not working.
+* Figure out why builds using userspace are not working.
