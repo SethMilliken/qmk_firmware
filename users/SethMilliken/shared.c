@@ -1,8 +1,17 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "1.93.0"
+#define CONFIG_VERSION "1.94.0"
 
 #define HYPE(x) C(A(G(x)))
+
+#define DIS_PINS G(KC_P)
+#define DIS_MENT G(A(S(KC_DOWN)))
+#define DIS_NEXT A(S(KC_DOWN))
+#define DIS_PREV A(S(KC_UP))
+#define DIS_NEXT_SERV G(A(KC_DOWN))
+#define DIS_PREV_SERV G(A(KC_UP))
+#define DIS_NEXT_HIST G(KC_RCBR)
+#define DIS_PREV_HIST G(KC_LCBR)
 
 enum araxia_layers {
     _BASE,            // 0
