@@ -62,10 +62,10 @@ KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,   
         ),
         // tri-state layer; do not switch to directly
 	[_DISCORD] = LAYOUT_planck_grid(
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    C(S(KC_N)) ,  XXXXXXX       ,  XXXXXXX     ,  XXXXXXX ,  XXXXXXX ,
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_PGDN    ,  A(S(KC_DOWN)) ,  A(S(KC_UP)) ,  KC_PGUP ,  XXXXXXX ,
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP    ,  KC_PGDN       ,  KC_HOME     ,  KC_END  ,  XXXXXXX ,
-KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS    ,  KC_TRNS       ,  KC_TRNS     ,  KC_TRNS ,  KC_TRNS
+XXXXXXX ,  KC_TAB  ,  KC_UP   ,  KC_PLUS  ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    DF(_DISCORD) ,  DIS_PREV_SERV ,  DIS_NEXT_SERV ,  DIS_PINS ,  C(S(KC_N)) ,
+XXXXXXX ,  KC_LEFT ,  KC_DOWN ,  KC_RIGHT ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGDN      ,  DIS_NEXT      ,  DIS_PREV      ,  KC_PGUP  ,  KC_PGDN    ,
+XXXXXXX ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP      ,  DIS_PREV_HIST ,  DIS_NEXT_HIST ,  XXXXXXX  ,  DIS_MENT   ,
+KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,  DF(_BASE) ,    KC_TRNS ,  KC_TRNS ,    DF(_BASE)    ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS  ,  KC_TRNS
         ),
 	[_POINTER] = LAYOUT_split_3x6_3(
 KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
