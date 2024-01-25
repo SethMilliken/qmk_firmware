@@ -34,6 +34,25 @@ KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,    KC_TRNS ,  KC_TRNS ,   
 KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
+        // tri-state layer; do not switch to directly
+    [_ADJUST] = LAYOUT_planck_grid(
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  CW_TOGG    ,  XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  WARPD_L ,    KC_TRNS ,  KC_TRNS ,    WARPD_R ,  WARPD_MOV  ,  WARPD_2P ,  XXXXXXX ,  XXXXXXX ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_GRV  ,    KC_TRNS ,  KC_TRNS ,    KC_QUOT ,  S(KC_QUOT) ,  XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,
+KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS    ,  KC_TRNS  ,  KC_TRNS ,  KC_TRNS
+        ),
+    [_DISCORD] = LAYOUT_planck_grid(
+XXXXXXX ,  KC_TAB  ,  KC_UP   ,  KC_PLUS  ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    DF(_DISCORD) ,  DIS_PREV_SERV ,  DIS_NEXT_SERV ,  DIS_PINS ,  C(S(KC_N)) ,
+XXXXXXX ,  KC_LEFT ,  KC_DOWN ,  KC_RIGHT ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGDN      ,  DIS_NEXT      ,  DIS_PREV      ,  KC_PGUP  ,  KC_PGDN    ,
+XXXXXXX ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP      ,  DIS_PREV_HIST ,  DIS_NEXT_HIST ,  XXXXXXX  ,  DIS_MENT   ,
+KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,  DF(_BASE) ,    KC_TRNS ,  KC_TRNS ,    DF(_BASE)    ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS  ,  KC_TRNS
+        ),
+    [_POINTER] = LAYOUT_planck_grid(
+KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+KC_ACL1 ,  KC_MS_L ,  KC_MS_D ,  KC_MS_R ,  KC_WH_D ,    KC_TRNS ,  KC_TRNS ,    KC_MS_L ,  KC_MS_D ,  KC_MS_U ,  KC_MS_R ,  XXXXXXX ,
+KC_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_BTN1 ,  KC_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+        ),
     [_WIN_LEFT] = LAYOUT_planck_grid(
 KC_TRNS      ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR) ,    KC_TRNS ,  KC_TRNS ,    RCS(KC_Y)  ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  LT(_WIN_RIGHT,RCS(KC_P)) ,
 LGUI(KC_GRV) ,  G(C(KC_4))    ,  G(C(KC_3))    ,  G(C(KC_2))    ,  G(C(KC_1))    ,    KC_TRNS ,  KC_TRNS ,    RCS(KC_H)  ,  RCS(KC_J) ,  RCS(KC_K)  ,  RCS(KC_L)  ,  RCS(KC_COLON)            ,
@@ -47,31 +66,11 @@ RCS(KC_Z)               ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B) ,   
 KC_TRNS                 ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS       ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS
         ),
         // tri-state layer; do not switch to directly
-    [_ADJUST] = LAYOUT_planck_grid(
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  CW_TOGG    ,  XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  WARPD_L ,    KC_TRNS ,  KC_TRNS ,    WARPD_R ,  WARPD_MOV  ,  WARPD_2P ,  XXXXXXX ,  XXXXXXX ,
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_GRV  ,    KC_TRNS ,  KC_TRNS ,    KC_QUOT ,  S(KC_QUOT) ,  XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,
-KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS    ,  KC_TRNS  ,  KC_TRNS ,  KC_TRNS
-        ),
-        // tri-state layer; do not switch to directly
     [_LIGHTING] = LAYOUT_planck_grid(
 XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_TOG ,    KC_TRNS ,  KC_TRNS ,    QK_BOOT ,  QK_RBT     ,  KC_F18  ,  KC_F17  ,  KC_F16 ,
 XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  RGB_MOD ,    KC_TRNS ,  KC_TRNS ,    DB_TOGG ,  XXXXXXX    ,  KC_F21  ,  KC_F20  ,  KC_F19 ,
 XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  CW_TOGG ,    KC_TRNS ,  KC_TRNS ,    QK_MAKE ,  S(QK_MAKE) ,  KC_F24  ,  KC_F23  ,  KC_F22 ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS    ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
-        ),
-        // tri-state layer; do not switch to directly
-    [_DISCORD] = LAYOUT_planck_grid(
-XXXXXXX ,  KC_TAB  ,  KC_UP   ,  KC_PLUS  ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    DF(_DISCORD) ,  DIS_PREV_SERV ,  DIS_NEXT_SERV ,  DIS_PINS ,  C(S(KC_N)) ,
-XXXXXXX ,  KC_LEFT ,  KC_DOWN ,  KC_RIGHT ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGDN      ,  DIS_NEXT      ,  DIS_PREV      ,  KC_PGUP  ,  KC_PGDN    ,
-XXXXXXX ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP      ,  DIS_PREV_HIST ,  DIS_NEXT_HIST ,  XXXXXXX  ,  DIS_MENT   ,
-KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,  DF(_BASE) ,    KC_TRNS ,  KC_TRNS ,    DF(_BASE)    ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS  ,  KC_TRNS
-        ),
-    [_POINTER] = LAYOUT_planck_grid(
-KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-KC_ACL1 ,  KC_MS_L ,  KC_MS_D ,  KC_MS_R ,  KC_WH_D ,    KC_TRNS ,  KC_TRNS ,    KC_MS_L ,  KC_MS_D ,  KC_MS_U ,  KC_MS_R ,  XXXXXXX ,
-KC_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_BTN1 ,  KC_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         )
 };
 // }}}
