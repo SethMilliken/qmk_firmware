@@ -28,6 +28,17 @@ function build_all {
     done
 }
 
+function build_command {
+    echo "$COMMAND"
+    $COMMAND
+}
+
+function flash_command {
+    echo "$COPY_COMMAND"
+    $COPY_COMMAND
+}
+
+
 case "${HOST}" in
     "ksanti")
         COPY_DESTINATION="/Volumes/Users/seth/Desktop/share/qmk-firmware"
@@ -45,26 +56,27 @@ esac
 case "${TARGET}" in
     "bad_wings")
         COMMAND="qmk compile -kb hazel/bad_wings -km SethMilliken"
+        build_command
         COPY_DESTINATION="/Volumes/RPI-RP2"
         COPY_COMMAND="cp hazel_bad_wings_SethMilliken.uf2 ${COPY_DESTINATION}"
         wait_for $COPY_DESTINATION
+        flash_command
         ;;
     "planck")
         COMMAND="qmk compile -kb planck/rev6_drop -km SethMilliken"
+        build_command
         COPY_COMMAND="qmk flash -kb planck/rev6_drop"
+        flash_command
         ;;
     "aurora_corne")
         COMMAND="qmk compile -kb hazel/bad_wings -km SethMilliken"
+        build_command
         COPY_DESTINATION="/Volumes/RPI-RP2"
         COPY_COMMAND="cp hazel_bad_wings_SethMilliken.uf2 ${COPY_DESTINATION}"
         wait_for $COPY_DESTINATION
+        flash_command
         ;;
     *)
-        COMMAND="echo 'Provide specific target to flash.'"
+        echo 'Provide specific target to flash.'
         ;;
 esac
-
-echo "$COMMAND"
-$COMMAND
-echo "$COPY_COMMAND"
-$COPY_COMMAND
