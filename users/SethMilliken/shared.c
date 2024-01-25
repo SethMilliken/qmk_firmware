@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "2.00.0"
+#define CONFIG_VERSION "2.01.0"
 
 #define HYPER(x) C(A(G(x)))
 #define CARD_DISCORD HYPER(D)
@@ -94,8 +94,8 @@ const uint16_t PROGMEM combo_return_left[]     = {KC_T                 ,  KC_G  
 const uint16_t PROGMEM combo_return_right[]    = {KC_Y                 ,  KC_H                   ,  COMBO_END};
 //const uint16_t PROGMEM combo_return_t_left[]   = {LT(_LNUM,C(KC_W))    ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
 //const uint16_t PROGMEM combo_return_t_right[]  = {LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC)     ,  COMBO_END};
-const uint16_t PROGMEM combo_sticky_shift[]    = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
-const uint16_t PROGMEM combo_caps_word[]       = {LCTL_T(KC_A)         ,  RCTL_T(KC_SCLN)        ,  COMBO_END};
+const uint16_t PROGMEM combo_sticky_shift[]    = {LCTL_T(KC_A)         ,  RCTL_T(KC_SCLN)        ,  COMBO_END};
+const uint16_t PROGMEM combo_caps_word[]       = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
 const uint16_t PROGMEM combo_discord[]         = {LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC)     ,  COMBO_END};
 const uint16_t PROGMEM combo_pointer[]         = {LT(_NUMPAD,KC_SPC)   ,  RGUI_T(KC_COLON)       ,  COMBO_END};
 
