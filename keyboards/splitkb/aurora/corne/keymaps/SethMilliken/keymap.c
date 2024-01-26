@@ -59,16 +59,16 @@ DISCORD_ON ,  KC_SLSH             ,  KC_DOT       ,  KC_COMMA     ,  KC_M       
                                                      RTHUMB_O     ,  RTHUMB_M     ,  RTHUMB_I ,    LTHUMB_I ,  LTHUMB_M     ,  LTHUMB_O
         ),
         [_WIN_LEFT] = LAYOUT_split_3x6_3(
-XXXXXXX ,  KC_TRNS      ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR)     ,  RCS(KC_Y)  ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  LT(_WIN_RIGHT,RCS(KC_P)) , XXXXXXX ,
-XXXXXXX ,  LGUI(KC_GRV) ,  G(C(KC_4))    ,  G(C(KC_3))    ,  G(C(KC_2))    ,  G(C(KC_1))        ,  RCS(KC_H)  ,  RCS(KC_J) ,  RCS(KC_K)  ,  RCS(KC_L)  ,  RCS(KC_COLON)            , XXXXXXX ,
-XXXXXXX ,  LGUI(KC_TAB) ,  G(C(S(KC_4))) ,  G(C(S(KC_3))) ,  G(C(S(KC_2))) ,  G(C(S(KC_1)))     ,  RCS(KC_N)  ,  RCS(KC_M) ,  RCS(KC_LT) ,  RCS(KC_GT) ,  RCS(KC_SLSH)             , XXXXXXX ,
-                                            KC_TRNS       ,  KC_TRNS       ,  KC_TRNS           ,  KC_TRNS    ,  KC_TRNS   ,  KC_TRNS
+XXXXXXX ,  KC_TRNS   ,  NAV_FORWARD  ,  NAV_BACKWARD ,  NAV_TAB_NEXT ,  NAV_TAB_PREV ,    RCS(KC_Y) ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  LT(_WIN_RIGHT,RCS(KC_P)) , XXXXXXX ,
+XXXXXXX ,  WIN_HQUAD ,  NAV_WIN_NEXT ,  WIN_HTHIRD   ,  WIN_HHALF    ,  WIN_FULL     ,    RCS(KC_H) ,  RCS(KC_J) ,  RCS(KC_K)  ,  RCS(KC_L)  ,  RCS(KC_COLON)            , XXXXXXX ,
+XXXXXXX ,  WIN_VQUAD ,  NAV_APP_NEXT ,  WIN_VTHIRD   ,  WIN_VHALF    ,  WIN_SCREEN   ,    RCS(KC_N) ,  RCS(KC_M) ,  RCS(KC_LT) ,  RCS(KC_GT) ,  RCS(KC_SLSH)             , XXXXXXX ,
+                                        KC_TRNS      ,  KC_TRNS      ,  KC_TRNS      ,    KC_TRNS   ,  KC_TRNS   ,  KC_TRNS
         ),
         [_WIN_RIGHT] = LAYOUT_split_3x6_3(
-XXXXXXX ,  LT(_WIN_LEFT,RCS(KC_Q)) ,  RCS(KC_W) ,  RCS(KC_E) ,  RCS(KC_R) ,  RCS(KC_T)       ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR) ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  KC_TRNS      , XXXXXXX ,
-XXXXXXX ,                RCS(KC_A) ,  RCS(KC_S) ,  RCS(KC_D) ,  RCS(KC_F) ,  RCS(KC_G)       ,  G(C(KC_1))    ,  G(C(KC_2))    ,  G(C(KC_3))    ,  G(C(KC_4))    ,  LGUI(KC_GRV) , XXXXXXX ,
-XXXXXXX ,                RCS(KC_Z) ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B)       ,  G(C(S(KC_1))) ,  G(C(S(KC_2))) ,  G(C(S(KC_3))) ,  G(C(S(KC_4))) ,  LGUI(KC_TAB) , XXXXXXX ,
-                                                   KC_TRNS   ,  KC_TRNS   ,  KC_TRNS         ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS
+XXXXXXX ,  LT(_WIN_LEFT,RCS(KC_Q)) ,  RCS(KC_W) ,  RCS(KC_E) ,  RCS(KC_R) ,  RCS(KC_T) ,    NAV_TAB_PREV ,  NAV_TAB_NEXT ,  NAV_BACKWARD ,  NAV_FORWARD  ,  KC_TRNS   , XXXXXXX ,
+XXXXXXX ,                RCS(KC_A) ,  RCS(KC_S) ,  RCS(KC_D) ,  RCS(KC_F) ,  RCS(KC_G) ,    WIN_FULL     ,  WIN_HHALF    ,  WIN_HTHIRD   ,  NAV_WIN_NEXT ,  WIN_HQUAD , XXXXXXX ,
+XXXXXXX ,                RCS(KC_Z) ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B) ,    WIN_SCREEN   ,  WIN_VHALF    ,  WIN_VTHIRD   ,  NAV_APP_NEXT ,  WIN_VQUAD , XXXXXXX ,
+                                                   KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,    KC_TRNS      ,  KC_TRNS      ,  KC_TRNS
         ),
         // tri-state layer; do not switch to directly
         [_LIGHTING] = LAYOUT_split_3x6_3(

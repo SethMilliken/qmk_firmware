@@ -1,6 +1,6 @@
-#include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "2.10.0"
+
+#define CONFIG_VERSION "2.11.0"
 
 #define HYPER(x) C(A(G(x)))
 #define CARD_DISCORD HYPER(D)
@@ -21,6 +21,7 @@
 
 #define COLONY RCTL_T(KC_SCLN)
 #define EYES KC_I
+//#define EYES TD(TD_I_I)
 
 #define LTHUMB_O LGUI_T(KC_ENT)
 #define LTHUMB_M LT(_LNUM,C(KC_W))
@@ -30,7 +31,21 @@
 #define RTHUMB_M LT(_NUMPAD,KC_SPC)
 #define RTHUMB_O RGUI_T(KC_COLON)
 
-//#define EYES TD(TD_I_I)
+#define WIN_FULL    G(C(KC_1))
+#define WIN_SCREEN  G(C(S(KC_1)))
+#define WIN_HHALF   G(C(KC_2))
+#define WIN_VHALF   G(C(S(KC_2)))
+#define WIN_HTHIRD  G(C(KC_3))
+#define WIN_VTHIRD  G(C(S(KC_3)))
+#define WIN_HQUAD   G(C(KC_4))
+#define WIN_VQUAD   G(C(S(KC_4)))
+
+#define NAV_FORWARD  LGUI(KC_LBRC)
+#define NAV_BACKWARD LGUI(KC_RBRC)
+#define NAV_TAB_NEXT SGUI(KC_LCBR)
+#define NAV_TAB_PREV SGUI(KC_RCBR)
+#define NAV_WIN_NEXT LGUI(KC_GRV)
+#define NAV_APP_NEXT LGUI(KC_TAB)
 
 enum araxia_layers {
     _BASE,            // 0
