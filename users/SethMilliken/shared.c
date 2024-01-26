@@ -19,6 +19,10 @@
 #define DIS_NEXT_SERV G(A(KC_DOWN))
 #define DIS_PREV_SERV G(A(KC_UP))
 
+#define COLONY RCTL_T(KC_SCLN)
+#define EYES KC_I
+//#define EYES TD(TD_I_I)       
+
 enum araxia_layers {
     _BASE,            // 0
     _SYMBOLS,         // 1
@@ -45,6 +49,11 @@ enum custom_keycodes {
     DISCORD_ON,
     POINTER_ON,
     MODE_OFF,
+};
+
+enum tap_dances {
+    TD_I_I,
+    TD_SEMI_QUOTE,
 };
 
 // COMBOS {{{
@@ -77,7 +86,7 @@ enum combos {
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM combo_version[]         = {LT(_WIN_LEFT,KC_Q)   ,  KC_W                   ,  COMBO_END};
-const uint16_t PROGMEM combo_tmux[]            = {KC_U                 ,  KC_I                   ,  KC_O         ,  COMBO_END};
+const uint16_t PROGMEM combo_tmux[]            = {KC_U                 ,  EYES                   ,  KC_O         ,  COMBO_END};
 const uint16_t PROGMEM combo_tmux_mode[]       = {KC_W                 ,  KC_E                   ,  KC_R         ,  COMBO_END};
 const uint16_t PROGMEM combo_del[]             = {KC_O                 ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
 const uint16_t PROGMEM combo_gui_left[]        = {KC_Z                 ,  KC_X                   ,  COMBO_END};
@@ -94,7 +103,7 @@ const uint16_t PROGMEM combo_return_left[]     = {KC_T                 ,  KC_G  
 const uint16_t PROGMEM combo_return_right[]    = {KC_Y                 ,  KC_H                   ,  COMBO_END};
 //const uint16_t PROGMEM combo_return_t_left[]   = {LT(_LNUM,C(KC_W))    ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
 //const uint16_t PROGMEM combo_return_t_right[]  = {LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC)     ,  COMBO_END};
-const uint16_t PROGMEM combo_sticky_shift[]    = {LCTL_T(KC_A)         ,  RCTL_T(KC_SCLN)        ,  COMBO_END};
+const uint16_t PROGMEM combo_sticky_shift[]    = {LCTL_T(KC_A)         ,  COLONY                 ,  COMBO_END};
 const uint16_t PROGMEM combo_caps_word[]       = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
 const uint16_t PROGMEM combo_discord[]         = {LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC)     ,  COMBO_END};
 const uint16_t PROGMEM combo_pointer[]         = {LT(_NUMPAD,KC_SPC)   ,  RGUI_T(KC_COLON)       ,  COMBO_END};
@@ -138,6 +147,14 @@ const key_override_t override_control_h = {
     .options                = ko_options_default,
     .custom_action          = flush_modifiers,
     .enabled                = NULL
+};
+
+// Tap Dances
+tap_dance_action_t tap_dance_actions[] = {
+    // TODO: get this working with caps word
+    [TD_I_I] = ACTION_TAP_DANCE_DOUBLE(KC_I, S(KC_I)),
+    // TODO' get this working with hold-tap
+    [TD_SEMI_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_QUOT),
 };
 
 // This globally defines all key overrides to be used
