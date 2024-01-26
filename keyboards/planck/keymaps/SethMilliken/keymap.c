@@ -5,10 +5,10 @@
 // KEYMAP {{{
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_planck_grid(
-LT(_WIN_LEFT,KC_Q) ,  KC_W         ,  KC_E           ,  KC_R              ,  KC_T                ,    KC_F1 ,  KC_F2  ,    KC_Y               ,  KC_U               ,  EYES             ,  KC_O         ,  LT(_WIN_RIGHT,KC_P) ,
-LCTL_T(KC_A)       ,  LGUI_T(KC_S) ,  LALT_T(KC_D)   ,  LSFT_T(KC_F)      ,  KC_G                ,    KC_F3 ,  KC_F4  ,    KC_H               ,  RSFT_T(KC_J)       ,  LALT_T(KC_K)     ,  RGUI_T(KC_L) ,  COLONY              ,
-KC_Z               ,  KC_X         ,  KC_C           ,  KC_V              ,  KC_B                ,    KC_F5 ,  KC_F6  ,    KC_N               ,  KC_M               ,  KC_COMMA         ,  KC_DOT       ,  KC_SLSH             ,
-KC_F7              ,  KC_F8        ,  LGUI_T(KC_ENT) ,  LT(_LNUM,C(KC_W)) ,  LT(_SYMBOLS,KC_ESC) ,    KC_F9 ,  KC_F10 ,    LT(_MEDIA,KC_ESC)  ,  LT(_NUMPAD,KC_SPC) ,  RGUI_T(KC_COLON) ,  KC_F11       ,  KC_F12
+LT(_WIN_LEFT,KC_Q) ,  KC_W         ,  KC_E         ,  KC_R         ,  KC_T     ,    KC_F1 ,  KC_F2  ,    KC_Y     ,  KC_U         ,  EYES         ,  KC_O         ,  LT(_WIN_RIGHT,KC_P) ,
+LCTL_T(KC_A)       ,  LGUI_T(KC_S) ,  LALT_T(KC_D) ,  LSFT_T(KC_F) ,  KC_G     ,    KC_F3 ,  KC_F4  ,    KC_H     ,  RSFT_T(KC_J) ,  LALT_T(KC_K) ,  RGUI_T(KC_L) ,  COLONY              ,
+KC_Z               ,  KC_X         ,  KC_C         ,  KC_V         ,  KC_B     ,    KC_F5 ,  KC_F6  ,    KC_N     ,  KC_M         ,  KC_COMMA     ,  KC_DOT       ,  KC_SLSH             ,
+KC_F7              ,  KC_F8        ,  LTHUMB_O     ,  LTHUMB_M     ,  LTHUMB_I ,    KC_F9 ,  KC_F10 ,    RTHUMB_I ,  RTHUMB_M     ,  RTHUMB_O     ,  KC_F11       ,  KC_F12
         ),
     [_SYMBOLS] = LAYOUT_planck_grid(
 KC_COMMA ,  KC_AMPR   ,  KC_ASTERISK ,  KC_TILDE ,  KC_BSLS ,    KC_TRNS ,  KC_TRNS ,    KC_LT   ,  KC_GT   ,  KC_LPRN ,  KC_RPRN ,  S(KC_QUOT) ,
@@ -52,6 +52,12 @@ KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U ,    KC_TRNS ,  KC_TRNS ,   
 KC_ACL1 ,  KC_MS_L ,  KC_MS_D ,  KC_MS_R ,  KC_WH_D ,    KC_TRNS ,  KC_TRNS ,    KC_MS_L ,  KC_MS_D ,  KC_MS_U ,  KC_MS_R ,  XXXXXXX ,
 KC_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_BTN1 ,  KC_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+        ),
+    [_MIRROR] = LAYOUT_planck_grid(
+LT(_WIN_RIGHT,KC_P) ,  KC_O         ,  EYES         ,  KC_U         ,  KC_Y     ,    KC_TRNS ,  KC_TRNS ,    LT(_WIN_RIGHT,KC_P) ,  KC_O         ,  EYES         ,  KC_U         ,  KC_Y         ,
+COLONY              ,  RGUI_T(KC_L) ,  LALT_T(KC_K) ,  RSFT_T(KC_J) ,  KC_H     ,    KC_TRNS ,  KC_TRNS ,    KC_G                ,  LSFT_T(KC_F) ,  LALT_T(KC_D) ,  LGUI_T(KC_S) ,  LCTL_T(KC_A) ,
+KC_SLSH             ,  KC_DOT       ,  KC_COMMA     ,  KC_M         ,  KC_N     ,    KC_TRNS ,  KC_TRNS ,    KC_SLSH             ,  KC_DOT       ,  KC_COMMA     ,  KC_M         ,  KC_N         ,
+KC_TRNS             ,  KC_TRNS      ,  RTHUMB_O     ,  RTHUMB_M     ,  RTHUMB_I ,    KC_TRNS ,  KC_TRNS ,    LTHUMB_I            ,  LTHUMB_M     ,  LTHUMB_O     ,  KC_TRNS      ,  KC_TRNS
         ),
     [_WIN_LEFT] = LAYOUT_planck_grid(
 KC_TRNS      ,  LGUI(KC_LBRC) ,  LGUI(KC_RBRC) ,  SGUI(KC_LCBR) ,  SGUI(KC_RCBR) ,    KC_TRNS ,  KC_TRNS ,    RCS(KC_Y)  ,  RCS(KC_U) ,  RCS(KC_I)  ,  RCS(KC_O)  ,  LT(_WIN_RIGHT,RCS(KC_P)) ,
