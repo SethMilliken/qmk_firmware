@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define CONFIG_VERSION "2.01.0"
+#define CONFIG_VERSION "2.10.0"
 
 #define HYPER(x) C(A(G(x)))
 #define CARD_DISCORD HYPER(D)
@@ -21,7 +21,16 @@
 
 #define COLONY RCTL_T(KC_SCLN)
 #define EYES KC_I
-//#define EYES TD(TD_I_I)       
+
+#define LTHUMB_O LGUI_T(KC_ENT)
+#define LTHUMB_M LT(_LNUM,C(KC_W))
+#define LTHUMB_I LT(_SYMBOLS,KC_ESC)
+
+#define RTHUMB_I LT(_MEDIA,KC_ESC)
+#define RTHUMB_M LT(_NUMPAD,KC_SPC)
+#define RTHUMB_O RGUI_T(KC_COLON)
+
+//#define EYES TD(TD_I_I)
 
 enum araxia_layers {
     _BASE,            // 0
@@ -32,10 +41,11 @@ enum araxia_layers {
     _ADJUST,          // 5
     _DISCORD,         // 6
     _POINTER,         // 7
-    _WIN_LEFT,        // 8
-    _WIN_RIGHT,       // 9
-    _LIGHTING,        // 10
-    _LAYER_LENGTH     // 11
+    _MIRROR,          // 8
+    _WIN_LEFT,        // 9
+    _WIN_RIGHT,       // 10
+    _LIGHTING,        // 11
+    _LAYER_LENGTH     // 12
 };
 
 enum custom_keycodes {
@@ -80,6 +90,8 @@ enum combos {
     COMBO_CAPS_WORD,
     COMBO_DISCORD,
     COMBO_POINTER,
+    COMBO_MIRROR_LEFT,
+    COMBO_MIRROR_RIGHT,
     COMBO_LENGTH
 };
 
@@ -94,19 +106,21 @@ const uint16_t PROGMEM combo_alt_left[]        = {LCTL_T(KC_A)         ,  KC_Z  
 const uint16_t PROGMEM combo_gui_right[]       = {KC_DOT               ,  KC_SLSH                ,  COMBO_END};
 const uint16_t PROGMEM combo_alt_right[]       = {RCTL_T(KC_COLON)     ,  KC_SLSH                ,  COMBO_END};
 const uint16_t PROGMEM combo_inverse_winl[]    = {LT(_WIN_LEFT,KC_Q)   ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
-const uint16_t PROGMEM combo_inverse_winr[]    = {LT(_MEDIA,KC_ESC)    ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
+const uint16_t PROGMEM combo_inverse_winr[]    = {RTHUMB_I             ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
 const uint16_t PROGMEM combo_swap_left[]       = {LSFT_T(KC_F)         ,  KC_Z                   ,  COMBO_END};
 const uint16_t PROGMEM combo_swap_right[]      = {RSFT_T(KC_J)         ,  KC_SLSH                ,  COMBO_END};
 const uint16_t PROGMEM combo_tab_left[]        = {KC_G                 ,  KC_B                   ,  COMBO_END};
 const uint16_t PROGMEM combo_tab_right[]       = {KC_H                 ,  KC_N                   ,  COMBO_END};
 const uint16_t PROGMEM combo_return_left[]     = {KC_T                 ,  KC_G                   ,  COMBO_END};
 const uint16_t PROGMEM combo_return_right[]    = {KC_Y                 ,  KC_H                   ,  COMBO_END};
-//const uint16_t PROGMEM combo_return_t_left[]   = {LT(_LNUM,C(KC_W))    ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
-//const uint16_t PROGMEM combo_return_t_right[]  = {LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC)     ,  COMBO_END};
+//const uint16_t PROGMEM combo_return_t_left[]   = {LTHUMB_M             ,  LTHUMB_I               ,  COMBO_END};
+//const uint16_t PROGMEM combo_return_t_right[]  = {RTHUMB_I             ,  RTHUMB_M               ,  COMBO_END};
 const uint16_t PROGMEM combo_sticky_shift[]    = {LCTL_T(KC_A)         ,  COLONY                 ,  COMBO_END};
 const uint16_t PROGMEM combo_caps_word[]       = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
-const uint16_t PROGMEM combo_discord[]         = {LT(_MEDIA,KC_ESC)    ,  LT(_NUMPAD,KC_SPC)     ,  COMBO_END};
-const uint16_t PROGMEM combo_pointer[]         = {LT(_NUMPAD,KC_SPC)   ,  RGUI_T(KC_COLON)       ,  COMBO_END};
+const uint16_t PROGMEM combo_discord[]         = {RTHUMB_I             ,  RTHUMB_O               ,  COMBO_END};
+const uint16_t PROGMEM combo_pointer[]         = {RTHUMB_M             ,  RTHUMB_O               ,  COMBO_END};
+const uint16_t PROGMEM combo_mirror_left[]     = {LTHUMB_M             ,  LTHUMB_I               ,  COMBO_END};
+const uint16_t PROGMEM combo_mirror_right[]    = {RTHUMB_M             ,  RTHUMB_I               ,  COMBO_END};
 
 combo_t key_combos[] = {
     [COMBO_VERSION]         = COMBO_ACTION(   combo_version    ),
@@ -131,6 +145,8 @@ combo_t key_combos[] = {
     [COMBO_CAPS_WORD]       = COMBO(   combo_caps_word          , CW_TOGG                       ),
     [COMBO_DISCORD]         = COMBO(   combo_discord            , DISCORD_ON                    ),
     [COMBO_POINTER]         = COMBO(   combo_pointer            , POINTER_ON                    ),
+    [COMBO_MIRROR_LEFT]     = COMBO(   combo_mirror_left        , OSL(_MIRROR)                  ),
+    [COMBO_MIRROR_RIGHT]    = COMBO(   combo_mirror_right       , OSL(_MIRROR)                  ),
 };
 
 bool flush_modifiers(bool key_down, void* context) {
@@ -167,7 +183,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     switch(combo_index) {
         case COMBO_VERSION:
             if (pressed) {
-                SEND_STRING(CONFIG_VERSION); 
+                SEND_STRING(CONFIG_VERSION);
             }
             break;
         case COMBO_TMUX:
@@ -187,12 +203,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         // hold-preferred tapping-term for thumb cluster
-        case LT(_SYMBOLS,KC_ESC):
-        case LGUI_T(KC_ENT):
-        case LT(_LNUM,C(KC_W)):
-        case LT(_MEDIA,KC_ESC):
-        case LT(_NUMPAD,KC_SPC):
-        case RGUI_T(KC_COLON):
+        case LTHUMB_I:
+        case LTHUMB_O:
+        case LTHUMB_M:
+        case RTHUMB_I:
+        case RTHUMB_M:
+        case RTHUMB_O:
             return HP_TAPPING_TERM;
         default:
             return TAPPING_TERM;
@@ -203,12 +219,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         // permissive-hold for thumb cluster
-        case LT(_SYMBOLS,KC_ESC):
-        case LGUI_T(KC_ENT):
-        case LT(_LNUM,C(KC_W)):
-        case LT(_MEDIA,KC_ESC):
-        case LT(_NUMPAD,KC_SPC):
-        case RGUI_T(KC_COLON):
+        case LTHUMB_I:
+        case LTHUMB_O:
+        case LTHUMB_M:
+        case RTHUMB_I:
+        case RTHUMB_M:
+        case RTHUMB_O:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -221,13 +237,13 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         // hold on other key for thumb cluster
-        case LT(_SYMBOLS,KC_ESC):
-        case LGUI_T(KC_ENT):
-        case LT(_LNUM,C(KC_W)):
-        case LT(_MEDIA,KC_ESC):
-        case LT(_NUMPAD,KC_SPC):
-        case RGUI_T(KC_COLON):
-        case LT(1, KC_BSPC):
+        case LTHUMB_I:
+        case LTHUMB_O:
+        case LTHUMB_M:
+        case RTHUMB_I:
+        case RTHUMB_M:
+        case RTHUMB_O:
+        case LT(_SYMBOLS, KC_BSPC):
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
@@ -307,13 +323,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     /* Workaround for mod-tap and layer-tap not supporting modified tap keycodes */
     switch (keycode) {
-        case RGUI_T(KC_COLON):
+        case RTHUMB_O:
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_COLON); // Send KC_COLON on tap
                 return false;         // Return false to ignore further processing of key
             }
             break;
-        case LT(_LNUM,C(KC_W)):
+        case LTHUMB_M:
             if (record->tap.count && record->event.pressed) {
                 tap_code16(C(KC_W));  // Send C(KC_W) on tap
                 return false;         // Return false to ignore further processing of key
