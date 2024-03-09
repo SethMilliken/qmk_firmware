@@ -69,10 +69,10 @@ case "${TARGET}" in
         flash_command
         ;;
     "aurora_corne")
-        COMMAND="qmk compile -kb hazel/bad_wings -km SethMilliken"
+        COMMAND="qmk compile -kb splitkb/aurora/corne -km SethMilliken"
         build_command
         COPY_DESTINATION="/Volumes/RPI-RP2"
-        COPY_COMMAND="cp hazel_bad_wings_SethMilliken.uf2 ${COPY_DESTINATION}"
+        COPY_COMMAND="cp splitkb_aurora_corne_rev1_SethMilliken_promicro_rp2040.uf2 ${COPY_DESTINATION}"
         wait_for $COPY_DESTINATION
         flash_command
         ;;
