@@ -37,6 +37,10 @@ QMK is developed and maintained by Jack Humbert of OLKB with contributions from 
 
 ## SethMilliken
 
+Build with `qmk-build <target>`
+
+### WIP
+
 To use userspace:
 
 ```
@@ -45,3 +49,25 @@ qmk config user.overlay_dir=/Users/seth.milliken/sandbox/code/qmk_userspace
 
 * Figure out why adding keymaps to userspace is not working.
 * Figure out why builds using userspace are not working.
+
+### Missing ZMK Features
+
+* 3.49: standardize on combo timeouts
+* 3.47: add osl macro for act and func one-shot layers
+* 3.46: numpad adjustments
+* 3.45: add new function layer with combo
+* 3.44: replace inverse_win combos with additional act layer one shots
+* 3.43: switch to using shift sk for win move alternate modes
+* 3.42: more symmetrical pointer layer
+* 3.41: add distinct one-shot act layer with combo
+* 3.39: adjusted mouse keys configuration values
+* 3.35: adjusted combo timings
+* 3.33: distinct tmux layer
+* 3.32: mirrored backspace combo on right
+* 3.31: lower version combo timing
+* 3.30: distinct home row mods shift timings
+* 3.19: backspace combo
+* 3.16: left side esc on discord layer
+* 3.15: toggles for pointer and discord layers
+* 3.13: `&capsy` with `&caps_lock`
+* 3.10: mirrored lnum numpad
