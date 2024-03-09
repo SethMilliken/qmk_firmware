@@ -1,6 +1,6 @@
 
 
-#define CONFIG_VERSION "2.11.0"
+#define CONFIG_VERSION "3.0.0"
 
 #define HYPER(x) C(A(G(x)))
 #define CARD_DISCORD HYPER(D)
@@ -74,6 +74,15 @@ enum custom_keycodes {
     DISCORD_ON,
     POINTER_ON,
     MODE_OFF,
+    TMUX_OZ,
+    TMUX_PASTE,
+    TMUX_NP,
+    TMUX_PP,
+    TMUX_NW,
+    TMUX_PW,
+    TMUX_NS,
+    TMUX_PS,
+    TMUX_SW,
 };
 
 enum tap_dances {
@@ -313,12 +322,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_move(_POINTER);
                 return false;
             case MODE_OFF:
+                // TODO: figure out how to only do this if Discord mode was active
                 // swap to previously active app
                 SEND_STRING(SS_DOWN(X_LGUI)SS_TAP(X_TAB)SS_UP(X_LGUI));
                 // remove mode card
                 SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LALT)SS_DOWN(X_LCTL)SS_DOWN(X_LSFT)SS_TAP(X_DELETE)SS_UP(X_LGUI)SS_UP(X_LALT)SS_UP(X_LCTL)SS_UP(X_LSFT)SS_UP(X_LCTL)SS_UP(X_LSFT));
                 // return to default layer
                 layer_clear();
+                return false;
+            case TMUX_OZ:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"o");
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"z");
+                return false;
+            case TMUX_PASTE:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"]");
+                return false;
+            case TMUX_NP:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"o");
+                return false;
+            case TMUX_PP:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)";");
+                return false;
+            case TMUX_NW:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"n");
+                return false;
+            case TMUX_PW:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"p");
+                return false;
+            case TMUX_NS:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)")");
+                return false;
+            case TMUX_PS:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"(");
+                return false;
+            case TMUX_SW:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL));
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL));
                 return false;
         }
     }
