@@ -1,9 +1,9 @@
 #SRC += shared.c
-CONSOLE_ENABLE 			= yes
-COMBO_ENABLE 			= yes
-KEY_OVERRIDE_ENABLE 		= yes
-#NO_USB_STARTUP_CHECK 		= yes
-CAPS_WORD_ENABLE		= yes
-MOUSEKEY_ENABLE			= yes
-EXTRAKEY_ENABLE			= yes
-TAP_DANCE_ENABLE	        = yes
+CONSOLE_ENABLE        = yes
+COMBO_ENABLE          = yes
+KEY_OVERRIDE_ENABLE   = yes
+#NO_USB_STARTUP_CHECK  = yes
+CAPS_WORD_ENABLE      = yes
+MOUSEKEY_ENABLE       = yes
+EXTRAKEY_ENABLE       = yes
+TAP_DANCE_ENABLE      = yes
