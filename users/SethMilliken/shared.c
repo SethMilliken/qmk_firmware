@@ -108,14 +108,14 @@ enum combos {
     COMBO_TAB_RIGHT,
     COMBO_RETURN_LEFT,
     COMBO_RETURN_RIGHT,
-//    COMBO_RETURN_T_LEFT,
-//    COMBO_RETURN_T_RIGHT,
+    COMBO_RETURN_T_LEFT,
+    COMBO_RETURN_T_RIGHT,
     COMBO_STICKY_SHIFT,
     COMBO_CAPS_WORD,
     COMBO_DISCORD,
     COMBO_POINTER,
-    COMBO_MIRROR_LEFT,
-    COMBO_MIRROR_RIGHT,
+//    COMBO_MIRROR_LEFT,
+//    COMBO_MIRROR_RIGHT,
     COMBO_LENGTH
 };
 
@@ -137,14 +137,14 @@ const uint16_t PROGMEM combo_tab_left[]        = {KC_G                 ,  KC_B  
 const uint16_t PROGMEM combo_tab_right[]       = {KC_H                 ,  KC_N                   ,  COMBO_END};
 const uint16_t PROGMEM combo_return_left[]     = {KC_T                 ,  KC_G                   ,  COMBO_END};
 const uint16_t PROGMEM combo_return_right[]    = {KC_Y                 ,  KC_H                   ,  COMBO_END};
-//const uint16_t PROGMEM combo_return_t_left[]   = {LTHUMB_M             ,  LTHUMB_I               ,  COMBO_END};
-//const uint16_t PROGMEM combo_return_t_right[]  = {RTHUMB_I             ,  RTHUMB_M               ,  COMBO_END};
+const uint16_t PROGMEM combo_return_t_left[]   = {LTHUMB_M             ,  LTHUMB_I               ,  COMBO_END};
+const uint16_t PROGMEM combo_return_t_right[]  = {RTHUMB_I             ,  RTHUMB_M               ,  COMBO_END};
 const uint16_t PROGMEM combo_sticky_shift[]    = {LCTL_T(KC_A)         ,  COLONY                 ,  COMBO_END};
 const uint16_t PROGMEM combo_caps_word[]       = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
 const uint16_t PROGMEM combo_discord[]         = {RTHUMB_I             ,  RTHUMB_O               ,  COMBO_END};
 const uint16_t PROGMEM combo_pointer[]         = {RTHUMB_M             ,  RTHUMB_O               ,  COMBO_END};
-const uint16_t PROGMEM combo_mirror_left[]     = {LTHUMB_M             ,  LTHUMB_I               ,  COMBO_END};
-const uint16_t PROGMEM combo_mirror_right[]    = {RTHUMB_M             ,  RTHUMB_I               ,  COMBO_END};
+//const uint16_t PROGMEM combo_mirror_left[]     = {LTHUMB_M             ,  LTHUMB_I               ,  COMBO_END};
+//const uint16_t PROGMEM combo_mirror_right[]    = {RTHUMB_M             ,  RTHUMB_I               ,  COMBO_END};
 
 combo_t key_combos[] = {
     [COMBO_VERSION]         = COMBO_ACTION(   combo_version    ),
@@ -163,14 +163,14 @@ combo_t key_combos[] = {
     [COMBO_TAB_RIGHT]       = COMBO(   combo_tab_right          , KC_TAB                        ),
     [COMBO_RETURN_LEFT]     = COMBO(   combo_return_left        , KC_ENT                        ),
     [COMBO_RETURN_RIGHT]    = COMBO(   combo_return_right       , KC_ENT                        ),
-//    [COMBO_RETURN_T_LEFT]   = COMBO(   combo_return_t_left      , KC_ENT                        ),
-//    [COMBO_RETURN_T_RIGHT]  = COMBO(   combo_return_t_right     , KC_ENT                        ),
+    [COMBO_RETURN_T_LEFT]   = COMBO(   combo_return_t_left      , LT(_MIRROR,KC_ENT)            ),
+    [COMBO_RETURN_T_RIGHT]  = COMBO(   combo_return_t_right     , LT(_MIRROR,KC_ENT)            ),
     [COMBO_STICKY_SHIFT]    = COMBO(   combo_sticky_shift       , OSM(MOD_LSFT)                 ),
     [COMBO_CAPS_WORD]       = COMBO(   combo_caps_word          , CW_TOGG                       ),
     [COMBO_DISCORD]         = COMBO(   combo_discord            , DISCORD_ON                    ),
     [COMBO_POINTER]         = COMBO(   combo_pointer            , POINTER_ON                    ),
-    [COMBO_MIRROR_LEFT]     = COMBO(   combo_mirror_left        , OSL(_MIRROR)                  ),
-    [COMBO_MIRROR_RIGHT]    = COMBO(   combo_mirror_right       , OSL(_MIRROR)                  ),
+//    [COMBO_MIRROR_LEFT]     = COMBO(   combo_mirror_left        , OSL(_MIRROR)                  ),
+//    [COMBO_MIRROR_RIGHT]    = COMBO(   combo_mirror_right       , OSL(_MIRROR)                  ),
 };
 
 bool flush_modifiers(bool key_down, void* context) {
