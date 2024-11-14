@@ -1,6 +1,4 @@
-
-
-#define CONFIG_VERSION "3.0.0"
+#define CONFIG_VERSION "3.1.0"
 
 #define HYPER(x) C(A(G(x)))
 #define CARD_DISCORD HYPER(D)
