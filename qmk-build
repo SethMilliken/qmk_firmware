@@ -76,7 +76,10 @@ case "${TARGET}" in
         wait_for $COPY_DESTINATION
         flash_command
         ;;
+    "all")
+        build_all
+        ;;
     *)
-        echo 'Provide specific target to flash.'
+        echo 'Provide specific target to flash: bad_wings, planck, aurora_corne, all'
         ;;
 esac
