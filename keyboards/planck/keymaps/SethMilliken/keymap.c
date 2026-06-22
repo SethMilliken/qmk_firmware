@@ -1,4 +1,7 @@
 #include QMK_KEYBOARD_H
+#if __has_include("keymap.h")
+#    include "keymap.h"
+#endif
 
 #include "users/SethMilliken/shared.c"
 
@@ -71,6 +74,12 @@ RCS(KC_A)               ,  RCS(KC_S) ,  RCS(KC_D) ,  RCS(KC_F) ,  RCS(KC_G) ,   
 RCS(KC_Z)               ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B) ,    KC_TRNS ,  KC_TRNS ,    WIN_SCREEN   ,  WIN_VHALF    ,  WIN_VTHIRD   ,  NAV_APP_NEXT ,  WIN_VQUAD ,
 KC_TRNS                 ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS      ,  KC_TRNS      ,  KC_TRNS      ,  KC_TRNS      ,  KC_TRNS
         ),
+        [_FUNCTION] = LAYOUT_planck_grid(
+KC_F1   ,  KC_F2   ,  KC_F3   ,  KC_F4   ,  F2_MENU   ,    KC_TRNS ,  KC_TRNS ,    HELP_MENU  ,  KC_F13     ,  KC_F14 ,  KC_F15 ,  KC_F16 ,
+KC_F5   ,  KC_F6   ,  KC_F7   ,  KC_F8   ,  F2_STATUS ,    KC_TRNS ,  KC_TRNS ,    POINTER_ON ,  KC_F17     ,  KC_F18 ,  KC_F19 ,  KC_F20 ,
+KC_F9   ,  KC_F10  ,  KC_F11  ,  KC_F12  ,  F2_DOCK   ,    KC_TRNS ,  KC_TRNS ,    DISCORD_ON ,  KC_F21     ,  KC_F22 ,  KC_F23 ,  KC_F24 ,
+                      KC_TRNS ,  KC_TRNS ,  KC_TRNS   ,     KC_TRNS ,  KC_TRNS ,    KC_TRNS    ,  KC_TRNS    ,  KC_TRNS
+        ),
         // tri-state layer; do not switch to directly
     [_LIGHTING] = LAYOUT_planck_grid(
 XXXXXXX ,  XXXXXXX ,  RM_VALU ,  RM_VALD ,  RM_TOGG ,    KC_TRNS ,  KC_TRNS ,    QK_BOOT ,  QK_RBT     ,  KC_F18  ,  KC_F17  ,  KC_F16 ,
@@ -80,3 +89,7 @@ KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,   
         )
 };
 // }}}
+
+#ifdef OTHER_KEYMAP_C
+#    include OTHER_KEYMAP_C
+#endif // OTHER_KEYMAP_C
