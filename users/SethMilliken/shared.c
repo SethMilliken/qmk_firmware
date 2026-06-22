@@ -196,7 +196,7 @@ tap_dance_action_t tap_dance_actions[] = {
 };
 
 // This globally defines all key overrides to be used
-const key_override_t **key_overrides = (const key_override_t *[]){
+const key_override_t *key_overrides[] = {
     &override_control_h,
     NULL // Null terminate the array of overrides!
 };
