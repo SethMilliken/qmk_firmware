@@ -48,9 +48,9 @@ XXXXXXX ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX      ,    KC_PGUP      ,  D
                       KC_TRNS ,  KC_TRNS  ,  MODE_OFF     ,    MODE_OFF     ,  KC_TRNS       ,  KC_TRNS
         ),
         [_POINTER] = LAYOUT_split_3x5_3(
-KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U  ,    XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-KC_ACL1 ,  KC_MS_L ,  KC_MS_D ,  KC_MS_R ,  KC_WH_D  ,    KC_MS_L  ,  KC_MS_D ,  KC_MS_U ,  KC_MS_R ,  XXXXXXX ,
-KC_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX  ,    KC_BTN1  ,  KC_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+MS_ACL0 ,  MS_BTN1 ,  MS_UP   ,  MS_BTN2 ,  MS_WHLU  ,    XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+MS_ACL1 ,  MS_LEFT ,  MS_DOWN ,  MS_RGHT ,  MS_WHLD  ,    MS_LEFT  ,  MS_DOWN ,  MS_UP   ,  MS_RGHT ,  XXXXXXX ,
+MS_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX  ,    MS_BTN1  ,  MS_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
                       KC_TRNS ,  KC_TRNS ,  MODE_OFF ,    MODE_OFF ,  KC_TRNS ,  KC_TRNS
         ),
         [_MIRROR] = LAYOUT_split_3x5_3(
@@ -73,9 +73,9 @@ RCS(KC_Z)               ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS(KC_B) ,   
         ),
         // tri-state layer; do not switch to directly
         [_LIGHTING] = LAYOUT_split_3x5_3(
-XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_TOG ,    QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 ,
-XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  RGB_MOD ,    DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 ,
-XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  CW_TOGG ,    QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 ,
+XXXXXXX ,  XXXXXXX ,  RM_VALU ,  RM_VALD ,  RM_TOGG ,    QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 ,
+XXXXXXX ,  XXXXXXX ,  RM_SATU ,  RM_SATD ,  RM_NEXT ,    DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 ,
+XXXXXXX ,  XXXXXXX ,  RM_HUEU ,  RM_HUED ,  CW_TOGG ,    QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 ,
                       KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS    ,  KC_TRNS
         )
 };

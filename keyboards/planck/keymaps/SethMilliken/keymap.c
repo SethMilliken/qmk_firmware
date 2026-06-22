@@ -48,9 +48,9 @@ XXXXXXX ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,  DF(_BASE) ,    KC_TRNS ,  KC_TRNS ,    DF(_BASE)    ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS  ,  KC_TRNS
         ),
     [_POINTER] = LAYOUT_planck_grid(
-KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-KC_ACL1 ,  KC_MS_L ,  KC_MS_D ,  KC_MS_R ,  KC_WH_D ,    KC_TRNS ,  KC_TRNS ,    KC_MS_L ,  KC_MS_D ,  KC_MS_U ,  KC_MS_R ,  XXXXXXX ,
-KC_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_BTN1 ,  KC_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+MS_ACL0 ,  MS_BTN1 ,  MS_UP   ,  MS_BTN2 ,  MS_WHLU ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+MS_ACL1 ,  MS_LEFT ,  MS_DOWN ,  MS_RGHT ,  MS_WHLD ,    KC_TRNS ,  KC_TRNS ,    MS_LEFT ,  MS_DOWN ,  MS_UP   ,  MS_RGHT ,  XXXXXXX ,
+MS_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    MS_BTN1 ,  MS_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
     [_MIRROR] = LAYOUT_planck_grid(
@@ -73,9 +73,9 @@ KC_TRNS                 ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,  KC_TRNS   ,   
         ),
         // tri-state layer; do not switch to directly
     [_LIGHTING] = LAYOUT_planck_grid(
-XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_TOG ,    KC_TRNS ,  KC_TRNS ,    QK_BOOT ,  QK_RBT     ,  KC_F18  ,  KC_F17  ,  KC_F16 ,
-XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  RGB_MOD ,    KC_TRNS ,  KC_TRNS ,    DB_TOGG ,  XXXXXXX    ,  KC_F21  ,  KC_F20  ,  KC_F19 ,
-XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  CW_TOGG ,    KC_TRNS ,  KC_TRNS ,    QK_MAKE ,  S(QK_MAKE) ,  KC_F24  ,  KC_F23  ,  KC_F22 ,
+XXXXXXX ,  XXXXXXX ,  RM_VALU ,  RM_VALD ,  RM_TOGG ,    KC_TRNS ,  KC_TRNS ,    QK_BOOT ,  QK_RBT     ,  KC_F18  ,  KC_F17  ,  KC_F16 ,
+XXXXXXX ,  XXXXXXX ,  RM_SATU ,  RM_SATD ,  RM_NEXT ,    KC_TRNS ,  KC_TRNS ,    DB_TOGG ,  XXXXXXX    ,  KC_F21  ,  KC_F20  ,  KC_F19 ,
+XXXXXXX ,  XXXXXXX ,  RM_HUEU ,  RM_HUED ,  CW_TOGG ,    KC_TRNS ,  KC_TRNS ,    QK_MAKE ,  S(QK_MAKE) ,  KC_F24  ,  KC_F23  ,  KC_F22 ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS    ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         )
 };

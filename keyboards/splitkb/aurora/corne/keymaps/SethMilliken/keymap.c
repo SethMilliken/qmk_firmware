@@ -47,9 +47,9 @@ XXXXXXX ,  XXXXXXX ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX      ,      KC_P
                                  KC_TRNS ,  KC_TRNS  ,  MODE_OFF     ,      MODE_OFF     ,  KC_TRNS       ,  KC_TRNS
         ),
         [_POINTER] = LAYOUT_split_3x6_3(
-XXXXXXX ,  KC_ACL0 ,  KC_BTN1 ,  KC_MS_U ,  KC_BTN2 ,  KC_WH_U  ,    XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
-XXXXXXX ,  KC_ACL1 ,  KC_MS_L ,  KC_MS_D ,  KC_MS_R ,  KC_WH_D  ,    KC_MS_L  ,  KC_MS_D ,  KC_MS_U ,  KC_MS_R ,  XXXXXXX , XXXXXXX ,
-XXXXXXX ,  KC_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX  ,    KC_BTN1  ,  KC_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
+XXXXXXX ,  MS_ACL0 ,  MS_BTN1 ,  MS_UP   ,  MS_BTN2 ,  MS_WHLU  ,    XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
+XXXXXXX ,  MS_ACL1 ,  MS_LEFT ,  MS_DOWN ,  KC_MSEL ,  MS_WHLD  ,    MS_LEFT  ,  MS_DOWN ,  MS_UP   ,  KC_MSEL ,  XXXXXXX , XXXXXXX ,
+XXXXXXX ,  MS_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX  ,    MS_BTN1  ,  MS_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
                                  KC_TRNS ,  KC_TRNS ,  MODE_OFF ,    MODE_OFF ,  KC_TRNS ,  KC_TRNS
         ),
         [_MIRROR] = LAYOUT_split_3x6_3(
@@ -72,9 +72,9 @@ XXXXXXX ,                RCS(KC_Z) ,  RCS(KC_X) ,  RCS(KC_C) ,  RCS(KC_V) ,  RCS
         ),
         // tri-state layer; do not switch to directly
         [_LIGHTING] = LAYOUT_split_3x6_3(
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_VAI ,  RGB_VAD ,  RGB_TOG ,  QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 , XXXXXXX ,
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_SAI ,  RGB_SAD ,  RGB_MOD ,  DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 , XXXXXXX ,
-XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  CW_TOGG ,  QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 , XXXXXXX ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RM_VALU ,  RM_VALD ,  RM_TOGG ,  QK_BOOT ,  QK_RBT     ,  KC_F18 ,  KC_F17 ,  KC_F16 , XXXXXXX ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RM_SATU ,  RM_SATD ,  RM_NEXT ,  DB_TOGG ,  XXXXXXX    ,  KC_F21 ,  KC_F20 ,  KC_F19 , XXXXXXX ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RM_HUEU ,  RM_HUED ,  CW_TOGG ,  QK_MAKE ,  S(QK_MAKE) ,  KC_F24 ,  KC_F23 ,  KC_F22 , XXXXXXX ,
                                  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS    ,  KC_TRNS
         )
 };
@@ -82,10 +82,10 @@ XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  RGB_HUI ,  RGB_HUD ,  CW_TOGG ,  QK_MAKE ,  S(Q
 // MISC {{{
 void liatris_power_led_off(void) {
   // Set our LED pin as output
-  setPinOutput(24);
+  gpio_set_pin_output(24);
   // Turn the LED off
   // (Due to technical reasons, high is off and low is on)
-  writePinHigh(24);
+  gpio_write_pin_high(24);
 }
 
 void keyboard_pre_init_user(void) {
