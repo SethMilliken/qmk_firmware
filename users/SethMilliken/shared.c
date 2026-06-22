@@ -1,4 +1,4 @@
-#define CONFIG_VERSION "3.1.2"
+#define CONFIG_VERSION "3.1.3"
 
 #define HYPER(x) C(A(G(x)))
 #define CARD_DISCORD HYPER(D)
@@ -78,6 +78,11 @@ enum custom_keycodes {
     DISCORD_ON,
     POINTER_ON,
     MODE_OFF,
+    SS,
+    SSS,
+    SS2C,
+    SSS2C,
+    SS_WIN,
     TMUX_COPY,
     TMUX_FUNC,
     TMUX_IDX,
@@ -108,6 +113,7 @@ enum custom_keycodes {
     VIM_TEMP,
     VIM_WQALL,
     VIM_ZOOM,
+    ZOOM_TOG,
 };
 
 enum tap_dances {
@@ -373,6 +379,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 // return to default layer
                 layer_clear();
                 return false;
+            case SS:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LSFT)"3"SS_UP(X_LSFT)SS_UP(X_LGUI));
+                return false;
+            case SSS:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LSFT)"4"SS_UP(X_LSFT)SS_UP(X_LGUI));
+                return false;
+            case SS2C:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LALT)SS_DOWN(X_LSFT)"3"SS_UP(X_LSFT)SS_UP(X_LALT)SS_UP(X_LGUI));
+                return false;
+            case SSS2C:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LALT)SS_DOWN(X_LSFT)"4"SS_UP(X_LSFT)SS_UP(X_LALT)SS_UP(X_LGUI));
+                return false;
+            case SS_WIN:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_TAP(X_PRINT_SCREEN)SS_UP(X_LGUI));
+                return false;
             case TMUX_COPY:
                 SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"[");
                 return false;
@@ -464,6 +485,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             case VIM_ZOOM:
                 SEND_STRING(SS_TAP(X_ESC)SS_DOWN(X_LCTL)SS_TAP(X_W)SS_UP(X_LCTL)"z");
+                return false;
+            case ZOOM_TOG:
+                SEND_STRING(SS_DOWN(X_LGUI)SS_DOWN(X_LALT)SS_TAP(X_8)SS_UP(X_LALT)SS_UP(X_LGUI));
                 return false;
         }
     }
