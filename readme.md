@@ -52,22 +52,35 @@ qmk config user.overlay_dir=/Users/seth.milliken/sandbox/code/qmk_userspace
 
 ### Missing ZMK Features
 
-* 3.49: standardize on combo timeouts
-* 3.47: add osl macro for act and func one-shot layers
-* 3.46: numpad adjustments
-* 3.45: add new function layer with combo
-* 3.44: replace inverse_win combos with additional act layer one shots
-* 3.43: switch to using shift sk for win move alternate modes
-* 3.42: more symmetrical pointer layer
-* 3.41: add distinct one-shot act layer with combo
-* 3.39: adjusted mouse keys configuration values
-* 3.35: adjusted combo timings
-* 3.33: distinct tmux layer
-* 3.32: mirrored backspace combo on right
-* 3.31: lower version combo timing
-* 3.30: distinct home row mods shift timings
-* 3.19: backspace combo
-* 3.16: left side esc on discord layer
-* 3.15: toggles for pointer and discord layers
-* 3.13: `&capsy` with `&caps_lock`
-* 3.10: mirrored lnum numpad
+* [x] 4.17: new function layer
+* [x] 3.81: refine vimmux layer
+* [x] 3.80: add new vimmux layer
+* [x] 3.78: add `&zoom_tog` to adjust layer
+* [x] 3.77: swap tmux pane and window nav bindings
+* [x] 3.76: tmux vim paste
+* [x] 3.75: tmux macro adjustments
+* [x] 3.70: layer upheaval
+* [ ] 3.57: swap `win_next` position on window layers
+* [ ] 3.62: lhs return and space
+* [ ] 3.60: gaming layout
+* [ ] 3.52: remove `iI` tap dance
+* [ ] 3.50: remove `;` and `/` tap dances
+* [ ] 3.49: standardize on combo timeouts
+* [x] 3.47: add osl macro for act and func one-shot layers
+* [x] 3.46: numpad adjustments
+* [x] 3.45: add new function layer with combo
+* [x] 3.44: replace inverse_win combos with additional act layer one shots
+* [ ] 3.43: switch to using shift sk for win move alternate modes
+* [x] 3.42: more symmetrical pointer layer
+* [x] 3.41: add distinct one-shot act layer with combo
+* [ ] 3.39: adjusted mouse keys configuration values
+* [ ] 3.35: adjusted combo timings
+* [ ] 3.33: distinct tmux layer
+* [x] 3.32: mirrored backspace combo on right
+* [ ] 3.31: lower version combo timing
+* [ ] 3.30: distinct home row mods shift timings
+* [x] 3.19: backspace combo
+* [x] 3.16: left side esc on discord layer
+* [x] 3.15: toggles for pointer and discord layers
+* [ ] 3.13: `&capsy` with `&caps_lock`
+* [x] 3.10: mirrored lnum numpad
