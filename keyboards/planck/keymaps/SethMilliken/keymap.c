@@ -37,6 +37,12 @@ KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,    KC_TRNS ,  KC_TRNS ,   
 KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
+        [_VIMMUX] = LAYOUT_planck_grid(
+VIM_CQALL , VIM_SAVE ,  VIM_SPEC ,  VIM_TEMP ,  VIM_TABI ,    KC_TRNS ,  KC_TRNS ,    TMUX_MODE ,  TMUX_PS   ,  TMUX_NS   ,  TMUX_OZ ,  TMUX_PASTE ,
+VIM_TABF  , VIM_TABP ,  VIM_TABN ,  VIM_TABL ,  VIM_TABR ,    KC_TRNS ,  KC_TRNS ,    TMUX_SW   ,  TMUX_PP   ,  TMUX_PW   ,  TMUX_NW ,  TMUX_NP    ,
+VIM_WQALL , VIM_MISC ,  VIM_FUNC ,  VIM_NAV  ,  VIM_ZOOM ,    KC_TRNS ,  KC_TRNS ,    TMUX_IDX  ,  TMUX_ZOOM ,  TMUX_FUNC ,  TMUX_VP ,  TMUX_COPY  ,
+                        KC_TRNS  ,  KC_TRNS  ,  KC_TRNS  ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS   ,  KC_TRNS   ,  KC_TRNS
+        ),
         // tri-state layer; do not switch to directly
     [_ADJUST] = LAYOUT_planck_grid(
 XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  TMUX_OZ ,  TMUX_PASTE ,

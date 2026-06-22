@@ -36,6 +36,12 @@ XXXXXXX ,  KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,  KC_VOLD ,  KC_
 XXXXXXX ,  KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
                                  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
+        [_VIMMUX] = LAYOUT_split_3x6_3(
+XXXXXXX ,  VIM_CQALL , VIM_SAVE ,  VIM_SPEC ,  VIM_TEMP ,  VIM_TABI ,    TMUX_MODE ,  TMUX_PS   ,  TMUX_NS   ,  TMUX_OZ ,  TMUX_PASTE , XXXXXXX ,
+XXXXXXX ,  VIM_TABF  , VIM_TABP ,  VIM_TABN ,  VIM_TABL ,  VIM_TABR ,    TMUX_SW   ,  TMUX_PP   ,  TMUX_PW   ,  TMUX_NW ,  TMUX_NP    , XXXXXXX ,
+XXXXXXX ,  VIM_WQALL , VIM_MISC ,  VIM_FUNC ,  VIM_NAV  ,  VIM_ZOOM ,    TMUX_IDX  ,  TMUX_ZOOM ,  TMUX_FUNC ,  TMUX_VP ,  TMUX_COPY  , XXXXXXX ,
+                                   KC_TRNS  ,  KC_TRNS  ,  KC_TRNS  ,    KC_TRNS   ,  KC_TRNS   ,  KC_TRNS
+        ),
         // tri-state layer; do not switch to directly
         [_ADJUST] = LAYOUT_split_3x6_3(
 XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  TMUX_OZ ,  TMUX_PASTE , XXXXXXX ,

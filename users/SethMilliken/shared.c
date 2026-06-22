@@ -1,4 +1,4 @@
-#define CONFIG_VERSION "3.1.1"
+#define CONFIG_VERSION "3.1.2"
 
 #define HYPER(x) C(A(G(x)))
 #define CARD_DISCORD HYPER(D)
@@ -51,15 +51,16 @@ enum araxia_layers {
     _LNUM,            // 2
     _NUMPAD,          // 3
     _MEDIA,           // 4
-    _ADJUST,          // 5
-    _DISCORD,         // 6
-    _POINTER,         // 7
-    _MIRROR,          // 8
-    _WIN_LEFT,        // 9
-    _WIN_RIGHT,       // 10
-    _FUNCTION,        // 11
-    _LIGHTING,        // 12
-    _LAYER_LENGTH     // 13
+    _VIMMUX,          // 5
+    _ADJUST,          // 6
+    _DISCORD,         // 7
+    _POINTER,         // 8
+    _MIRROR,          // 9
+    _WIN_LEFT,        // 10
+    _WIN_RIGHT,       // 11
+    _FUNCTION,        // 12
+    _LIGHTING,        // 13
+    _LAYER_LENGTH     // 14
 };
 
 enum custom_keycodes {
@@ -77,15 +78,36 @@ enum custom_keycodes {
     DISCORD_ON,
     POINTER_ON,
     MODE_OFF,
-    TMUX_OZ,
+    TMUX_COPY,
+    TMUX_FUNC,
+    TMUX_IDX,
+    TMUX_MODE,
     TMUX_PASTE,
+    TMUX_ZOOM,
     TMUX_NP,
-    TMUX_PP,
-    TMUX_NW,
-    TMUX_PW,
     TMUX_NS,
+    TMUX_NW,
+    TMUX_OZ,
+    TMUX_PP,
     TMUX_PS,
+    TMUX_PW,
     TMUX_SW,
+    TMUX_VP,
+    VIM_CQALL,
+    VIM_FUNC,
+    VIM_MISC,
+    VIM_NAV,
+    VIM_SAVE,
+    VIM_SPEC,
+    VIM_TABF,
+    VIM_TABI,
+    VIM_TABL,
+    VIM_TABN,
+    VIM_TABP,
+    VIM_TABR,
+    VIM_TEMP,
+    VIM_WQALL,
+    VIM_ZOOM,
 };
 
 enum tap_dances {
@@ -172,7 +194,7 @@ combo_t key_combos[] = {
     [COMBO_TAB_RIGHT]       = COMBO(   combo_tab_right          , KC_TAB                        ),
     [COMBO_RETURN_LEFT]     = COMBO(   combo_return_left        , KC_ENT                        ),
     [COMBO_RETURN_RIGHT]    = COMBO(   combo_return_right       , KC_ENT                        ),
-    [COMBO_RETURN_T_LEFT]   = COMBO(   combo_return_t_left      , LT(_MIRROR,KC_ENT)            ),
+    [COMBO_RETURN_T_LEFT]   = COMBO(   combo_return_t_left      , LT(_VIMMUX,KC_ENT)            ),
     [COMBO_RETURN_T_RIGHT]  = COMBO(   combo_return_t_right     , LT(_MIRROR,KC_ENT)            ),
     [COMBO_STICKY_SHIFT]    = COMBO(   combo_sticky_shift       , OSM(MOD_LSFT)                 ),
     [COMBO_CAPS_WORD]       = COMBO(   combo_caps_word          , CW_TOGG                       ),
@@ -351,34 +373,97 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 // return to default layer
                 layer_clear();
                 return false;
-            case TMUX_OZ:
-                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"o");
-                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"z");
+            case TMUX_COPY:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"[");
+                return false;
+            case TMUX_FUNC:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)":");
+                return false;
+            case TMUX_IDX:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"'");
+                return false;
+            case TMUX_MODE:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"f");
                 return false;
             case TMUX_PASTE:
                 SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"]");
                 return false;
+            case TMUX_ZOOM:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"z");
+                return false;
             case TMUX_NP:
                 SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"o");
-                return false;
-            case TMUX_PP:
-                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)";");
-                return false;
-            case TMUX_NW:
-                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"n");
-                return false;
-            case TMUX_PW:
-                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"p");
                 return false;
             case TMUX_NS:
                 SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)")");
                 return false;
+            case TMUX_NW:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"n");
+                return false;
+            case TMUX_OZ:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"o");
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"z");
+                return false;
+            case TMUX_PP:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)";");
+                return false;
             case TMUX_PS:
                 SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"(");
+                return false;
+            case TMUX_PW:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL)"p");
                 return false;
             case TMUX_SW:
                 SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL));
                 SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_UP(X_LCTL));
+                return false;
+            case TMUX_VP:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_A)SS_TAP(X_P)SS_UP(X_LCTL));
+                return false;
+            case VIM_CQALL:
+                SEND_STRING(SS_TAP(X_ESC)":conf qal"SS_TAP(X_ENT));
+                return false;
+            case VIM_FUNC:
+                SEND_STRING(SS_TAP(X_ESC)SS_DOWN(X_LCTL)SS_TAP(X_Q)SS_UP(X_LCTL)"/func");
+                return false;
+            case VIM_MISC:
+                SEND_STRING(SS_TAP(X_ESC)SS_DOWN(X_LCTL)SS_TAP(X_Q)SS_UP(X_LCTL)"/misc");
+                return false;
+            case VIM_NAV:
+                SEND_STRING(SS_TAP(X_ESC)SS_DOWN(X_LCTL)SS_TAP(X_Q)SS_UP(X_LCTL)"/nav");
+                return false;
+            case VIM_SAVE:
+                SEND_STRING(SS_TAP(X_ESC)":w"SS_TAP(X_ENT));
+                return false;
+            case VIM_SPEC:
+                SEND_STRING(SS_TAP(X_ESC)SS_DOWN(X_LCTL)SS_TAP(X_Q)SS_UP(X_LCTL)"/spec");
+                return false;
+            case VIM_TABF:
+                SEND_STRING(SS_TAP(X_ESC)":tabr"SS_TAP(X_ENT));
+                return false;
+            case VIM_TABI:
+                SEND_STRING(SS_TAP(X_ESC)SS_DOWN(X_LCTL)SS_TAP(X_Q)SS_UP(X_LCTL)"/tab");
+                return false;
+            case VIM_TABL:
+                SEND_STRING(SS_TAP(X_ESC)":tabl"SS_TAP(X_ENT));
+                return false;
+            case VIM_TABN:
+                SEND_STRING(SS_TAP(X_ESC)"gt");
+                return false;
+            case VIM_TABP:
+                SEND_STRING(SS_TAP(X_ESC)"g"SS_DOWN(X_LSFT)SS_TAP(X_T)SS_UP(X_LSFT));
+                return false;
+            case VIM_TABR:
+                SEND_STRING(SS_TAP(X_ESC)"g"SS_TAP(X_TAB));
+                return false;
+            case VIM_TEMP:
+                SEND_STRING(SS_TAP(X_ESC)SS_DOWN(X_LCTL)SS_TAP(X_Q)SS_UP(X_LCTL)"/temp");
+                return false;
+            case VIM_WQALL:
+                SEND_STRING(SS_TAP(X_ESC)":wal"SS_TAP(X_ENT));
+                return false;
+            case VIM_ZOOM:
+                SEND_STRING(SS_TAP(X_ESC)SS_DOWN(X_LCTL)SS_TAP(X_W)SS_UP(X_LCTL)"z");
                 return false;
         }
     }
