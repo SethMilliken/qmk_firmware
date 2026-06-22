@@ -21,7 +21,7 @@
 #define EYES KC_I
 //#define EYES TD(TD_I_I)
 
-#define LTHUMB_O LGUI_T(KC_ENT)
+#define LTHUMB_O LT(_FUNCTION,KC_ENT)
 #define LTHUMB_M LT(_LNUM,C(KC_W))
 #define LTHUMB_I LT(_SYMBOLS,KC_ESC)
 
@@ -57,8 +57,9 @@ enum araxia_layers {
     _MIRROR,          // 8
     _WIN_LEFT,        // 9
     _WIN_RIGHT,       // 10
-    _LIGHTING,        // 11
-    _LAYER_LENGTH     // 12
+    _FUNCTION,        // 11
+    _LIGHTING,        // 12
+    _LAYER_LENGTH     // 13
 };
 
 enum custom_keycodes {
@@ -69,6 +70,10 @@ enum custom_keycodes {
     WARPD_2P,
     ACT_RIGHT,
     ACT_LEFT,
+    HELP_MENU,
+    F2_MENU,
+    F2_STATUS,
+    F2_DOCK,
     DISCORD_ON,
     POINTER_ON,
     MODE_OFF,
@@ -94,6 +99,8 @@ enum combos {
     COMBO_TMUX,
     COMBO_TMUX_MODE,
     COMBO_DEL,
+    COMBO_BSPC_LEFT,
+    COMBO_BSPC_RIGHT,
     COMBO_GUI_LEFT,
     COMBO_ALT_LEFT,
     COMBO_GUI_RIGHT,
@@ -123,6 +130,8 @@ const uint16_t PROGMEM combo_version[]         = {LT(_WIN_LEFT,KC_Q)   ,  KC_W  
 const uint16_t PROGMEM combo_tmux[]            = {KC_U                 ,  EYES                   ,  KC_O         ,  COMBO_END};
 const uint16_t PROGMEM combo_tmux_mode[]       = {KC_W                 ,  KC_E                   ,  KC_R         ,  COMBO_END};
 const uint16_t PROGMEM combo_del[]             = {KC_O                 ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
+const uint16_t PROGMEM combo_bspc_left[]       = {LT(_WIN_LEFT,KC_Q)   ,  LCTL_T(KC_A)           ,  COMBO_END};
+const uint16_t PROGMEM combo_bspc_right[]      = {LT(_WIN_RIGHT,KC_P)  ,  RCTL_T(KC_COLON)       ,  COMBO_END};
 const uint16_t PROGMEM combo_gui_left[]        = {KC_Z                 ,  KC_X                   ,  COMBO_END};
 const uint16_t PROGMEM combo_alt_left[]        = {LCTL_T(KC_A)         ,  KC_Z                   ,  COMBO_END};
 const uint16_t PROGMEM combo_gui_right[]       = {KC_DOT               ,  KC_SLSH                ,  COMBO_END};
@@ -149,6 +158,8 @@ combo_t key_combos[] = {
     [COMBO_TMUX]            = COMBO_ACTION(   combo_tmux       ),
     [COMBO_TMUX_MODE]       = COMBO_ACTION(   combo_tmux_mode  ),
     [COMBO_DEL]             = COMBO(   combo_del                , KC_DEL                        ),
+    [COMBO_BSPC_LEFT]       = COMBO(   combo_bspc_left          , KC_BSPC                       ),
+    [COMBO_BSPC_RIGHT]      = COMBO(   combo_bspc_right         , KC_BSPC                       ),
     [COMBO_GUI_LEFT]        = COMBO(   combo_gui_left           , KC_LGUI                       ),
     [COMBO_GUI_RIGHT]       = COMBO(   combo_gui_right          , KC_RGUI                       ),
     [COMBO_ALT_LEFT]        = COMBO(   combo_alt_left           , KC_LALT                       ),
@@ -304,6 +315,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             case ACT_LEFT:
                 layer_move(_WIN_LEFT);
+                return false;
+            case HELP_MENU:
+                SEND_STRING(SS_DOWN(X_LSFT)SS_DOWN(X_LGUI)SS_TAP(X_SLSH)SS_UP(X_LGUI)SS_UP(X_LSFT));
+                return false;
+            case F2_MENU:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_F2)SS_UP(X_LCTL));
+                return false;
+            case F2_STATUS:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_F8)SS_UP(X_LCTL));
+                return false;
+            case F2_DOCK:
+                SEND_STRING(SS_DOWN(X_LCTL)SS_TAP(X_F3)SS_UP(X_LCTL));
                 return false;
             case DISCORD_ON:
                 // activate Discord
