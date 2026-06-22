@@ -1,4 +1,4 @@
-#define CONFIG_VERSION "3.1.3"
+#define CONFIG_VERSION "3.1.4"
 
 #define HYPER(x) C(A(G(x)))
 #define CARD_DISCORD HYPER(D)
@@ -147,6 +147,7 @@ enum combos {
     COMBO_CAPS_WORD,
     COMBO_DISCORD,
     COMBO_POINTER,
+    COMBO_ADJUST_OSL,
 //    COMBO_MIRROR_LEFT,
 //    COMBO_MIRROR_RIGHT,
     COMBO_LENGTH
@@ -164,8 +165,8 @@ const uint16_t PROGMEM combo_gui_left[]        = {KC_Z                 ,  KC_X  
 const uint16_t PROGMEM combo_alt_left[]        = {LCTL_T(KC_A)         ,  KC_Z                   ,  COMBO_END};
 const uint16_t PROGMEM combo_gui_right[]       = {KC_DOT               ,  KC_SLSH                ,  COMBO_END};
 const uint16_t PROGMEM combo_alt_right[]       = {RCTL_T(KC_COLON)     ,  KC_SLSH                ,  COMBO_END};
-const uint16_t PROGMEM combo_inverse_winl[]    = {LT(_WIN_LEFT,KC_Q)   ,  LT(_SYMBOLS,KC_ESC)    ,  COMBO_END};
-const uint16_t PROGMEM combo_inverse_winr[]    = {RTHUMB_I             ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
+const uint16_t PROGMEM combo_inverse_winl[]    = {LT(_WIN_LEFT,KC_Q)   ,  LTHUMB_M               ,  COMBO_END};
+const uint16_t PROGMEM combo_inverse_winr[]    = {RTHUMB_M             ,  LT(_WIN_RIGHT,KC_P)    ,  COMBO_END};
 const uint16_t PROGMEM combo_swap_left[]       = {LSFT_T(KC_F)         ,  KC_Z                   ,  COMBO_END};
 const uint16_t PROGMEM combo_swap_right[]      = {RSFT_T(KC_J)         ,  KC_SLSH                ,  COMBO_END};
 const uint16_t PROGMEM combo_tab_left[]        = {KC_G                 ,  KC_B                   ,  COMBO_END};
@@ -178,6 +179,7 @@ const uint16_t PROGMEM combo_sticky_shift[]    = {LCTL_T(KC_A)         ,  COLONY
 const uint16_t PROGMEM combo_caps_word[]       = {LSFT_T(KC_F)         ,  RSFT_T(KC_J)           ,  COMBO_END};
 const uint16_t PROGMEM combo_discord[]         = {RTHUMB_I             ,  RTHUMB_O               ,  COMBO_END};
 const uint16_t PROGMEM combo_pointer[]         = {RTHUMB_M             ,  RTHUMB_O               ,  COMBO_END};
+const uint16_t PROGMEM combo_adjust_osl[]      = {LT(_WIN_LEFT,KC_Q)   ,  LTHUMB_I               ,  COMBO_END};
 //const uint16_t PROGMEM combo_mirror_left[]     = {LTHUMB_M             ,  LTHUMB_I               ,  COMBO_END};
 //const uint16_t PROGMEM combo_mirror_right[]    = {RTHUMB_M             ,  RTHUMB_I               ,  COMBO_END};
 
@@ -192,8 +194,8 @@ combo_t key_combos[] = {
     [COMBO_GUI_RIGHT]       = COMBO(   combo_gui_right          , KC_RGUI                       ),
     [COMBO_ALT_LEFT]        = COMBO(   combo_alt_left           , KC_LALT                       ),
     [COMBO_ALT_RIGHT]       = COMBO(   combo_alt_right          , KC_RALT                       ),
-    [COMBO_INVERSE_WINL]    = COMBO(   combo_inverse_winl       , MO(_WIN_RIGHT)                ),
-    [COMBO_INVERSE_WINR]    = COMBO(   combo_inverse_winr       , MO(_WIN_LEFT)                 ),
+    [COMBO_INVERSE_WINL]    = COMBO(   combo_inverse_winl       , OSL(_WIN_RIGHT)               ),
+    [COMBO_INVERSE_WINR]    = COMBO(   combo_inverse_winr       , OSL(_WIN_LEFT)                ),
     [COMBO_SWAP_LEFT]       = COMBO(   combo_swap_left          , LGUI(KC_TAB)                  ),
     [COMBO_SWAP_RIGHT]      = COMBO(   combo_swap_right         , LGUI(KC_TAB)                  ),
     [COMBO_TAB_LEFT]        = COMBO(   combo_tab_left           , KC_TAB                        ),
@@ -206,6 +208,7 @@ combo_t key_combos[] = {
     [COMBO_CAPS_WORD]       = COMBO(   combo_caps_word          , CW_TOGG                       ),
     [COMBO_DISCORD]         = COMBO(   combo_discord            , DISCORD_ON                    ),
     [COMBO_POINTER]         = COMBO(   combo_pointer            , POINTER_ON                    ),
+    [COMBO_ADJUST_OSL]      = COMBO(   combo_adjust_osl         , OSL(_ADJUST)                  ),
 //    [COMBO_MIRROR_LEFT]     = COMBO(   combo_mirror_left        , OSL(_MIRROR)                  ),
 //    [COMBO_MIRROR_RIGHT]    = COMBO(   combo_mirror_right       , OSL(_MIRROR)                  ),
 };
@@ -525,8 +528,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // }}}
 // TRILAYERS {{{
+// Just use combos instead
 layer_state_t layer_state_set_user(layer_state_t state) {
-    state = update_tri_layer_state(state ,  _SYMBOLS   ,  _MEDIA    ,  _ADJUST);
+    /* state = update_tri_layer_state(state ,  _SYMBOLS   ,  _MEDIA    ,  _ADJUST); */
     state = update_tri_layer_state(state ,  _WIN_RIGHT ,  _WIN_LEFT ,  _LIGHTING);
     return state;
 }
