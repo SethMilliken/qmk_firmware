@@ -20,21 +20,21 @@ KC_EQL   ,  KC_EXLM   ,  KC_AT       ,  KC_HASH  ,  KC_PIPE ,    KC_TRNS ,  KC_T
 KC_TRNS  ,  KC_TRNS   ,  KC_TRNS     ,  KC_TRNS  ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
     [_LNUM] = LAYOUT_planck_grid(
-KC_COMMA ,  KC_7      ,  KC_8        ,  KC_9    ,  KC_0     ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX     ,
-KC_DOT   ,  KC_4      ,  KC_5        ,  KC_6    ,  KC_COLON ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  S(KC_QUOT)  ,
-KC_EQL   ,  KC_1      ,  KC_2        ,  KC_3    ,  KC_MINS  ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX     ,
-KC_TRNS  ,  KC_TRNS   ,  KC_TRNS     ,  KC_TRNS ,  KC_TRNS  ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0     ,    KC_TRNS ,  KC_TRNS ,    KC_0     ,  KC_9    ,  KC_8    ,  KC_7    ,  KC_COMMA ,
+KC_DOT   ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_COLON ,    KC_TRNS ,  KC_TRNS ,    KC_COLON ,  KC_6    ,  KC_5    ,  KC_4    ,  KC_DOT   ,
+KC_EQL   ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_MINS  ,    KC_TRNS ,  KC_TRNS ,    KC_MINS  ,  KC_3    ,  KC_2    ,  KC_1    ,  KC_EQL   ,
+KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
     [_NUMPAD] = LAYOUT_planck_grid(
-KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0     ,    KC_TRNS ,  KC_TRNS ,    C(KC_F2) ,  C(KC_F3) ,  C(KC_8) ,  G(S(KC_SLSH)) ,  KC_TAB        ,
-KC_DOT   ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_COLON ,    KC_TRNS ,  KC_TRNS ,    KC_LEFT  ,  KC_DOWN  ,  KC_UP   ,  KC_RGHT       ,  KC_ENT        ,
-KC_EQL   ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_MINS  ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP  ,  KC_PGDN  ,  KC_HOME ,  KC_END        ,  KC_NUM_LOCK   ,
-KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS  ,  KC_TRNS  ,  KC_TRNS ,  KC_TRNS       ,  KC_TRNS
+KC_COMMA ,  KC_7    ,  KC_8    ,  KC_9    ,  KC_0     ,    KC_TRNS ,  KC_TRNS ,    KC_BSPC  ,  KC_TAB   ,  C(KC_N) ,  C(KC_P) ,  KC_SPC      ,
+KC_DOT   ,  KC_4    ,  KC_5    ,  KC_6    ,  KC_COLON ,    KC_TRNS ,  KC_TRNS ,    KC_LEFT  ,  KC_DOWN  ,  KC_UP   ,  KC_RGHT ,  KC_ENT      ,
+KC_EQL   ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_MINS  ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP  ,  KC_PGDN  ,  KC_HOME ,  KC_END  ,  KC_NUM_LOCK ,
+KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS  ,  KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
     [_MEDIA] = LAYOUT_planck_grid(
-KC_F1   ,  KC_F2   ,  KC_F3   ,  KC_F4   ,  KC_F5   ,    KC_TRNS ,  KC_TRNS ,    KC_MUTE ,  KC_MPRV ,  KC_MPLY ,  KC_MNXT ,  KC_BRIU ,
-KC_F6   ,  KC_F7   ,  KC_F8   ,  KC_F9   ,  KC_F10  ,    KC_TRNS ,  KC_TRNS ,    KC_VOLD ,  KC_VOLU ,  XXXXXXX ,  XXXXXXX ,  KC_BRID ,
-KC_F11  ,  KC_F12  ,  KC_F13  ,  KC_F14  ,  KC_F15  ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_MUTE ,  KC_MPRV ,  KC_MPLY ,  KC_MNXT ,  KC_BRIU ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    KC_VOLD ,  KC_VOLU ,  XXXXXXX ,  XXXXXXX ,  KC_BRID ,
+XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
 KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
         [_VIMMUX] = LAYOUT_planck_grid(
@@ -51,16 +51,16 @@ XXXXXXX ,  XXXXXXX ,  SSS2C    ,  SSS     ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,  
 KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
     [_DISCORD] = LAYOUT_planck_grid(
-XXXXXXX ,  KC_TAB  ,  KC_UP   ,  KC_PLUS  ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    DF(_DISCORD) ,  DIS_PREV_SERV ,  DIS_NEXT_SERV ,  DIS_PINS ,  C(S(KC_N)) ,
-XXXXXXX ,  KC_LEFT ,  KC_DOWN ,  KC_RIGHT ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGDN      ,  DIS_NEXT      ,  DIS_PREV      ,  KC_PGUP  ,  KC_PGDN    ,
-XXXXXXX ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP      ,  DIS_PREV_HIST ,  DIS_NEXT_HIST ,  XXXXXXX  ,  DIS_MENT   ,
-KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,  DF(_BASE) ,    KC_TRNS ,  KC_TRNS ,    DF(_BASE)    ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS  ,  KC_TRNS
+ACT_LEFT ,  KC_TAB  ,  KC_UP   ,  KC_PLUS  ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    DF(_DISCORD) ,  DIS_PREV_SERV ,  DIS_NEXT_SERV ,  DIS_PINS ,  ACT_RIGHT ,
+XXXXXXX  ,  KC_LEFT ,  KC_DOWN ,  KC_RIGHT ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGDN      ,  DIS_NEXT      ,  DIS_PREV      ,  KC_PGUP  ,  KC_PGDN   ,
+XXXXXXX  ,  KC_HOME ,  KC_ESC  ,  KC_END   ,  XXXXXXX   ,    KC_TRNS ,  KC_TRNS ,    KC_PGUP      ,  DIS_PREV_HIST ,  DIS_NEXT_HIST ,  XXXXXXX  ,  DIS_MENT  ,
+KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS  ,  DF(_BASE) ,    KC_TRNS ,  KC_TRNS ,    DF(_BASE)    ,  KC_TRNS       ,  KC_TRNS       ,  KC_TRNS  ,  KC_TRNS
         ),
     [_POINTER] = LAYOUT_planck_grid(
-MS_ACL0 ,  MS_BTN1 ,  MS_UP   ,  MS_BTN2 ,  MS_WHLU ,    KC_TRNS ,  KC_TRNS ,    XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-MS_ACL1 ,  MS_LEFT ,  MS_DOWN ,  MS_RGHT ,  MS_WHLD ,    KC_TRNS ,  KC_TRNS ,    MS_LEFT ,  MS_DOWN ,  MS_UP   ,  MS_RGHT ,  XXXXXXX ,
-MS_ACL2 ,  WARPD_L ,  WARPD_T ,  WARPD_R ,  XXXXXXX ,    KC_TRNS ,  KC_TRNS ,    MS_BTN1 ,  MS_BTN2 ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
-KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,    KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
+ACT_LEFT ,  MS_BTN2 ,  MS_UP   ,  MS_BTN1 ,  MS_WHLU  ,    KC_TRNS ,  KC_TRNS ,    MS_WHLU  ,  MS_BTN1 ,  MS_UP   ,  MS_BTN2 ,  ACT_RIGHT ,
+MS_ACL0  ,  MS_LEFT ,  MS_DOWN ,  MS_RGHT ,  MS_WHLD  ,    KC_TRNS ,  KC_TRNS ,    MS_WHLD  ,  MS_LEFT ,  MS_DOWN ,  MS_RGHT ,  MS_ACL1   ,
+WARPD_L  ,  WARPD_T ,  WARPD_R ,  MS_BTN1 ,  MS_BTN2  ,    KC_TRNS ,  KC_TRNS ,    MS_BTN2  ,  MS_BTN1 ,  WARPD_L ,  WARPD_T ,  WARPD_R   ,
+KC_TRNS  ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  MODE_OFF ,    KC_TRNS ,  KC_TRNS ,    MODE_OFF ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS ,  KC_TRNS
         ),
     [_MIRROR] = LAYOUT_planck_grid(
 LT(_WIN_RIGHT,KC_P) ,  KC_O         ,  EYES         ,  KC_U         ,  KC_Y     ,    KC_TRNS ,  KC_TRNS ,    LT(_WIN_RIGHT,KC_P) ,  KC_O         ,  EYES         ,  KC_U         ,  KC_Y         ,
